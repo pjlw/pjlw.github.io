@@ -7,14 +7,19 @@
   
   
   
-  <title>Archives | Liang`s Blog</title>
+  <title>汇编 | Liang`s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Liang`s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="编译环境工具准备 下载DOSBOX 工具介绍：DOSBox 是一个 DOS 模拟程序，由于它采用的是 SDL 库，所以可以很方便的移植到其他的平台。目前，DOSBox 已经支持在 Windows、Linux、Mac OS X、BeOS 、palmOS、Android 、webOS、os/2等系统中运行。不少DOS下的游戏都可以直接在该平台上运行。 工具官网：http://www.dosbox.co">
+<meta name="keywords" content="汇编">
+<meta property="og:type" content="article">
+<meta property="og:title" content="汇编">
+<meta property="og:url" content="http://yoursite.com/2017/07/02/编译环境/index.html">
 <meta property="og:site_name" content="Liang`s Blog">
+<meta property="og:description" content="编译环境工具准备 下载DOSBOX 工具介绍：DOSBox 是一个 DOS 模拟程序，由于它采用的是 SDL 库，所以可以很方便的移植到其他的平台。目前，DOSBox 已经支持在 Windows、Linux、Mac OS X、BeOS 、palmOS、Android 、webOS、os/2等系统中运行。不少DOS下的游戏都可以直接在该平台上运行。 工具官网：http://www.dosbox.co">
+<meta property="og:updated_time" content="2017-07-02T02:39:42.183Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Liang`s Blog">
+<meta name="twitter:title" content="汇编">
+<meta name="twitter:description" content="编译环境工具准备 下载DOSBOX 工具介绍：DOSBox 是一个 DOS 模拟程序，由于它采用的是 SDL 库，所以可以很方便的移植到其他的平台。目前，DOSBox 已经支持在 Windows、Linux、Mac OS X、BeOS 、palmOS、Android 、webOS、os/2等系统中运行。不少DOS下的游戏都可以直接在该平台上运行。 工具官网：http://www.dosbox.co">
   
     <link rel="alternative" href="/atom.xml" title="Liang`s Blog" type="application/atom+xml">
   
@@ -39,8 +44,8 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: false,
-          isArchive: true,
+          isPost: true,
+          isArchive: false,
           isTag: false,
           isCategory: false,
           open_in_new: false
@@ -265,184 +270,208 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-编译环境" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a  href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a  href="/2017/07/02/编译环境/" class="archive-article-date">
-      <time datetime="2017-07-02T02:20:15.000Z" itemprop="datePublished">07-02</time>
+    <div class="article-meta">
+      <a  href="/2017/07/02/编译环境/" class="article-date">
+      <time datetime="2017-07-02T02:20:15.000Z" itemprop="datePublished">2017-07-02</time>
 </a>
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a  class="archive-article-title" href="/2017/07/02/编译环境/">汇编</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      汇编
     </h1>
   
 
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 
-          
+        
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编/">汇编</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="编译环境"><a href="#编译环境" class="headerlink" title="编译环境"></a>编译环境</h2><h3 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h3><ol>
+<li>下载DOSBOX<ol>
+<li>工具介绍：DOSBox 是一个 DOS 模拟程序，由于它采用的是 SDL 库，所以可以很方便的移植到其他的平台。目前，DOSBox 已经支持在 Windows、Linux、Mac OS X、BeOS 、palmOS、Android 、webOS、os/2等系统中运行。不少DOS下的游戏都可以直接在该平台上运行。</li>
+<li>工具官网：<a href="http://www.dosbox.com/" target="_blank" rel="external">http://www.dosbox.com/</a></li>
+</ol>
+</li>
+<li>下载MASM32<ol>
+<li>工具介绍：MASM32是国外的MASM爱好者Steve Hutchesson自行整理和编写的一个软件包，目前最高版本为11r版。MASM32并非指Microsoft的MASM宏汇编器，而是包含了不同版本工具组建的汇编开发工具包。它的汇编编译器是MASM6.0以上版本中的Ml.exe，资源编译器是Microsoft Visual Studio中的Rc.exe，32位链接器是Microsoft Visual Studio中的Link.exe，同时包含有其他的一些如Lib.exe和DumpPe.exe等工具。</li>
+<li>工具官网: <a href="http://www.masm32.com/" target="_blank" rel="external">http://www.masm32.com/</a></li>
+</ol>
+</li>
+</ol>
+<h3 id="安装与配置"><a href="#安装与配置" class="headerlink" title="安装与配置"></a>安装与配置</h3><ol>
+<li>配置DOSBOX: 安装软件自然不需要再说，配置才是最重要的。创建一个用于保存汇编工具（如MASM、Link、DEBUG等工具）和汇编文件（*.asm）的目录，如：D:\DEBUG。打开DOSBOX的安装根目录（默认安装路径：C:\Program Files\DOSBox-0.74；若是64位的系统，则默认安装路径：C:\Program Files (x86)\DOSBox-0.74），双击文件DOSBox 0.74 Options.bat，运行该批处理文件后系统会用文本文档Notepad打开配置文件dosbox-0.74.conf。将光标定位到dosbox-0.74.conf文件的[autoexec]节点（一般在该文件末尾），在文件中添加以下内容：MOUNT C D:\DEBUG// 将目录D:\DEBUG挂载为DOSBOX下的C:set PATH=$PATH$;D:\DEBUG// 将D:\DEBUG写入环境变量PATH中;接下来安装MASM32按照默认配置安装就行了</li>
+</ol>
+
+      
+    </div>
+    
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a  href="/2017/07/02/汇编基础/" class="archive-article-date">
-      <time datetime="2017-07-02T02:17:11.000Z" itemprop="datePublished">07-02</time>
-</a>
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a  class="archive-article-title" href="/2017/07/02/汇编基础/">汇编基础</a>
-    </h1>
-  
-
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编/">汇编</a></li></ul>
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/2017/07/02/编译环境/">汇编</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 Petter 的个人博客">Petter</a></p>
+        <p><span>发布时间:</span>2017年07月02日 - 10时20分</p>
+        <p><span>最后更新:</span>2017年07月02日 - 10时39分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/07/02/编译环境/" title="汇编">http://yoursite.com/2017/07/02/编译环境/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/07/02/编译环境/　　作者: Petter" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
+
+
+<nav id="article-nav">
+  
+  
+    <a  href="/2017/07/02/汇编基础/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">汇编基础</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
 </article>
-  
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#编译环境"><span class="toc-number">1.</span> <span class="toc-text">编译环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#工具准备"><span class="toc-number">1.1.</span> <span class="toc-text">工具准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装与配置"><span class="toc-number">1.2.</span> <span class="toc-text">安装与配置</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
     
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: 'cyt1BkYgm',
+      conf: 'xxxxxxxxx'
+    });
+  </script>
+</section>
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a  href="/2017/06/21/诗2/" class="archive-article-date">
-      <time datetime="2017-06-20T23:53:15.000Z" itemprop="datePublished">06-21</time>
-</a>
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a  class="archive-article-title" href="/2017/06/21/诗2/">诗</a>
-    </h1>
-  
 
 
-        <div class="article-info info-on-archive">
-          
 
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/诗句/">诗句</a></li></ul>
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2017/07/02/汇编基础/" title="下一篇: 汇编基础">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
     </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a  href="/2017/06/21/诗/" class="archive-article-date">
-      <time datetime="2017-06-20T23:45:15.000Z" itemprop="datePublished">06-21</time>
-</a>
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a  class="archive-article-title" href="/2017/06/21/诗/">诗</a>
-    </h1>
-  
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/07/02/编译环境/">汇编</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/02/汇编基础/">汇编基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/21/诗2/">诗</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/21/诗/">诗</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/09/hello-world/">Hello World</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
 
 
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/诗句/">诗句</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a  href="/2017/06/09/hello-world/" class="archive-article-date">
-      <time datetime="2017-06-09T06:45:22.330Z" itemprop="datePublished">06-09</time>
-</a>
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a  class="archive-article-title" href="/2017/06/09/hello-world/">Hello World</a>
-    </h1>
-  
 
 
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-
+    <script>
+        
+    </script>
 
 </div>
       <footer id="footer">
@@ -553,17 +582,6 @@ MathJax.Hub.Queue(function() {
         };
     })
 </script>
-
-    <button class="hide-labels">TAG 开关</button>
-    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js">
-    </script>
-    <script>
-        $(document).ready(function() {
-            $("button").click(function() {
-                $(".article-info").toggle(200);
-            });
-        });
-    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
