@@ -270,6 +270,97 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-汇编基础3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/07/11/汇编基础3/" class="article-date">
+      <time datetime="2017-07-11T05:56:52.000Z" itemprop="datePublished">2017-07-11</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/07/11/汇编基础3/">8086指令系统和寻址方式</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="与转移有关的寻址方式"><a href="#与转移有关的寻址方式" class="headerlink" title="与转移有关的寻址方式"></a>与转移有关的寻址方式</h2><h3 id="三个表示转移距离"><a href="#三个表示转移距离" class="headerlink" title="三个表示转移距离"></a>三个表示转移距离</h3><ol>
+<li>SHORT:-128~127</li>
+<li>NEAR:-32768~32767，IP修改</li>
+<li>FAR:转移超过正/负32k的字节，CS,IP都修改</li>
+<li>CS:IP指向下一条将执行的指令首地址，当转移时修改;</li>
+</ol>
+<h3 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h3><ol>
+<li>段内直接寻址<ol>
+<li>JMP NEAR PTR AGAIN</li>
+<li>JMP SHORT NEXT</li>
+<li>适用于条件转移及无条件转移[条件转移，位移量为8]</li>
+</ol>
+</li>
+<li>段内间接寻址<ol>
+<li>JMP BX =&gt; IP=(BX)</li>
+<li>JMP NEAR PTR[BX] IP=(DS*16+BX)</li>
+<li>JMP SHORT [BX]</li>
+</ol>
+</li>
+<li>段内直接寻址<ol>
+<li>JMP FAR PTR OUTSEG</li>
+</ol>
+</li>
+<li>段间间接寻址<ol>
+<li>为了说明寻址两个单元，指令中需要加入DWORD</li>
+<li>JMP DWORD PTR [SI]</li>
+<li>JMP DWORD PTR [TABLE+BX]</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编/">汇编</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-基础知识3" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">

@@ -7,19 +7,19 @@
   
   
   
-  <title>诗 | Liang`s Blog</title>
+  <title>8086指令系统和寻址方式 | Liang`s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="想你虽然只见你一两次，但我早已将你的笑容进行了一次深拷贝，压在我记忆中的栈里。不时会pop出你的笑容，再次进行各种拷贝，再push进去，直到stackoverflow的那一天。如果非要对这个进程算出周转时间，那大概是一万年。因为上帝在new出我的时候，构造函数里专门为你分配了1TB的内存。">
-<meta name="keywords" content="诗句">
+  <meta name="description" content="与转移有关的寻址方式三个表示转移距离 SHORT:-128~127 NEAR:-32768~32767，IP修改 FAR:转移超过正/负32k的字节，CS,IP都修改 CS:IP指向下一条将执行的指令首地址，当转移时修改;  寻址方式 段内直接寻址 JMP NEAR PTR AGAIN JMP SHORT NEXT 适用于条件转移及无条件转移[条件转移，位移量为8]   段内间接寻址 JMP BX">
+<meta name="keywords" content="汇编">
 <meta property="og:type" content="article">
-<meta property="og:title" content="诗">
-<meta property="og:url" content="http://yoursite.com/2017/06/21/诗/index.html">
+<meta property="og:title" content="8086指令系统和寻址方式">
+<meta property="og:url" content="http://yoursite.com/2017/07/11/汇编基础3/index.html">
 <meta property="og:site_name" content="Liang`s Blog">
-<meta property="og:description" content="想你虽然只见你一两次，但我早已将你的笑容进行了一次深拷贝，压在我记忆中的栈里。不时会pop出你的笑容，再次进行各种拷贝，再push进去，直到stackoverflow的那一天。如果非要对这个进程算出周转时间，那大概是一万年。因为上帝在new出我的时候，构造函数里专门为你分配了1TB的内存。">
-<meta property="og:updated_time" content="2017-06-20T23:51:43.468Z">
+<meta property="og:description" content="与转移有关的寻址方式三个表示转移距离 SHORT:-128~127 NEAR:-32768~32767，IP修改 FAR:转移超过正/负32k的字节，CS,IP都修改 CS:IP指向下一条将执行的指令首地址，当转移时修改;  寻址方式 段内直接寻址 JMP NEAR PTR AGAIN JMP SHORT NEXT 适用于条件转移及无条件转移[条件转移，位移量为8]   段内间接寻址 JMP BX">
+<meta property="og:updated_time" content="2017-07-11T06:51:16.205Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="诗">
-<meta name="twitter:description" content="想你虽然只见你一两次，但我早已将你的笑容进行了一次深拷贝，压在我记忆中的栈里。不时会pop出你的笑容，再次进行各种拷贝，再push进去，直到stackoverflow的那一天。如果非要对这个进程算出周转时间，那大概是一万年。因为上帝在new出我的时候，构造函数里专门为你分配了1TB的内存。">
+<meta name="twitter:title" content="8086指令系统和寻址方式">
+<meta name="twitter:description" content="与转移有关的寻址方式三个表示转移距离 SHORT:-128~127 NEAR:-32768~32767，IP修改 FAR:转移超过正/负32k的字节，CS,IP都修改 CS:IP指向下一条将执行的指令首地址，当转移时修改;  寻址方式 段内直接寻址 JMP NEAR PTR AGAIN JMP SHORT NEXT 适用于条件转移及无条件转移[条件转移，位移量为8]   段内间接寻址 JMP BX">
   
     <link rel="alternative" href="/atom.xml" title="Liang`s Blog" type="application/atom+xml">
   
@@ -270,11 +270,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-诗" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-汇编基础3" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2017/06/21/诗/" class="article-date">
-      <time datetime="2017-06-20T23:45:15.000Z" itemprop="datePublished">2017-06-21</time>
+      <a  href="/2017/07/11/汇编基础3/" class="article-date">
+      <time datetime="2017-07-11T05:56:52.000Z" itemprop="datePublished">2017-07-11</time>
 </a>
 
     </div>
@@ -288,7 +288,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      诗
+      8086指令系统和寻址方式
     </h1>
   
 
@@ -300,7 +300,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/诗句/">诗句</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编/">汇编</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -310,7 +310,36 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="想你"><a href="#想你" class="headerlink" title="想你"></a>想你</h2><p>虽然只见你一两次，<br>但我早已将你的笑容<br>进行了一次深拷贝，<br>压在我记忆中的栈里。<br>不时会pop出你的笑容，<br>再次进行各种拷贝，<br>再push进去，<br>直到stackoverflow的那一天。<br>如果非要对这个进程算出周转时间，<br>那大概是一万年。<br>因为上帝在new出我的时候，<br>构造函数里专门为你分配了1TB的内存。</p>
+        <h2 id="与转移有关的寻址方式"><a href="#与转移有关的寻址方式" class="headerlink" title="与转移有关的寻址方式"></a>与转移有关的寻址方式</h2><h3 id="三个表示转移距离"><a href="#三个表示转移距离" class="headerlink" title="三个表示转移距离"></a>三个表示转移距离</h3><ol>
+<li>SHORT:-128~127</li>
+<li>NEAR:-32768~32767，IP修改</li>
+<li>FAR:转移超过正/负32k的字节，CS,IP都修改</li>
+<li>CS:IP指向下一条将执行的指令首地址，当转移时修改;</li>
+</ol>
+<h3 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h3><ol>
+<li>段内直接寻址<ol>
+<li>JMP NEAR PTR AGAIN</li>
+<li>JMP SHORT NEXT</li>
+<li>适用于条件转移及无条件转移[条件转移，位移量为8]</li>
+</ol>
+</li>
+<li>段内间接寻址<ol>
+<li>JMP BX =&gt; IP=(BX)</li>
+<li>JMP NEAR PTR[BX] IP=(DS*16+BX)</li>
+<li>JMP SHORT [BX]</li>
+</ol>
+</li>
+<li>段内直接寻址<ol>
+<li>JMP FAR PTR OUTSEG</li>
+</ol>
+</li>
+<li>段间间接寻址<ol>
+<li>为了说明寻址两个单元，指令中需要加入DWORD</li>
+<li>JMP DWORD PTR [SI]</li>
+<li>JMP DWORD PTR [TABLE+BX]</li>
+</ol>
+</li>
+</ol>
 
       
     </div>
@@ -319,13 +348,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2017/06/21/诗/">诗</a></p>
+        <p><span>本文标题:</span><a  href="/2017/07/11/汇编基础3/">8086指令系统和寻址方式</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 Petter 的个人博客">Petter</a></p>
-        <p><span>发布时间:</span>2017年06月21日 - 07时45分</p>
-        <p><span>最后更新:</span>2017年06月21日 - 07时51分</p>
+        <p><span>发布时间:</span>2017年07月11日 - 13时56分</p>
+        <p><span>最后更新:</span>2017年07月11日 - 14时51分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/06/21/诗/" title="诗">http://yoursite.com/2017/06/21/诗/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/06/21/诗/　　作者: Petter" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/07/11/汇编基础3/" title="8086指令系统和寻址方式">http://yoursite.com/2017/07/11/汇编基础3/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/07/11/汇编基础3/　　作者: Petter" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -336,18 +365,9 @@
 
 <nav id="article-nav">
   
-    <a  href="/2017/06/21/诗2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          诗
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2017/06/09/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a  href="/2017/07/08/基础知识3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">8086指令系统和寻址方式</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -359,7 +379,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#想你"><span class="toc-number">1.</span> <span class="toc-text">想你</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#与转移有关的寻址方式"><span class="toc-number">1.</span> <span class="toc-text">与转移有关的寻址方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#三个表示转移距离"><span class="toc-number">1.1.</span> <span class="toc-text">三个表示转移距离</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#寻址方式"><span class="toc-number">1.2.</span> <span class="toc-text">寻址方式</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -430,13 +450,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2017/06/21/诗2/" title="上一篇: 诗">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2017/06/09/hello-world/" title="下一篇: Hello World">
+            <a  href="/2017/07/08/基础知识3/" title="下一篇: 8086指令系统和寻址方式">
                 <i class="fa fa-angle-right"></i>
             </a>
         
