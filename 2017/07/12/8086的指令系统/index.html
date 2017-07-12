@@ -7,18 +7,19 @@
   
   
   
-  <title>8086指令系统和寻址方式 | Liang`s Blog</title>
+  <title>8086的指令系统 | Liang`s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="寻址方式 立即数寻址: MOV AX,34H;不能给段寄存器和标志寄存器赋立即数(MOV DS,1250是错误的) 寄存器寻址: 可以是AX,BX,CX,DX,SI,DI,SP,BP;寄存器的位数必须一致(MOV CL,BX是错误的) 内存储器寻址: 取得操作的偏移地址也称为有效地址EA 基本知识 有效地址的组成:位移量+基地址+变址　　　2. 不允许使用跨越前缀的情况:串处理的目的串必须用ES段">
+  <meta name="description" content="数据传送指令 通用数据传送指令 MOV传送指令 立即数传送 MOV CX,40 立即数–&amp;gt;寄存器 MOV BYTELD,40 立即数–&amp;gt;存储单元 注意立即数不能直接送到段寄存器,可用通用寄存器过渡: MOV AX,100   MOV DS,AX 寄存器传送 MOV CX,AX 寄存器–&amp;gt;寄存器 MOV BYTELD,AL 寄存器–&amp;gt;存储单元 MOV DS,AX 寄存器–&amp;g">
+<meta name="keywords" content="汇编">
 <meta property="og:type" content="article">
-<meta property="og:title" content="8086指令系统和寻址方式">
-<meta property="og:url" content="http://yoursite.com/2017/07/08/基础知识3/index.html">
+<meta property="og:title" content="8086的指令系统">
+<meta property="og:url" content="http://yoursite.com/2017/07/12/8086的指令系统/index.html">
 <meta property="og:site_name" content="Liang`s Blog">
-<meta property="og:description" content="寻址方式 立即数寻址: MOV AX,34H;不能给段寄存器和标志寄存器赋立即数(MOV DS,1250是错误的) 寄存器寻址: 可以是AX,BX,CX,DX,SI,DI,SP,BP;寄存器的位数必须一致(MOV CL,BX是错误的) 内存储器寻址: 取得操作的偏移地址也称为有效地址EA 基本知识 有效地址的组成:位移量+基地址+变址　　　2. 不允许使用跨越前缀的情况:串处理的目的串必须用ES段">
-<meta property="og:updated_time" content="2017-07-08T08:16:48.095Z">
+<meta property="og:description" content="数据传送指令 通用数据传送指令 MOV传送指令 立即数传送 MOV CX,40 立即数–&amp;gt;寄存器 MOV BYTELD,40 立即数–&amp;gt;存储单元 注意立即数不能直接送到段寄存器,可用通用寄存器过渡: MOV AX,100   MOV DS,AX 寄存器传送 MOV CX,AX 寄存器–&amp;gt;寄存器 MOV BYTELD,AL 寄存器–&amp;gt;存储单元 MOV DS,AX 寄存器–&amp;g">
+<meta property="og:updated_time" content="2017-07-12T06:44:33.182Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="8086指令系统和寻址方式">
-<meta name="twitter:description" content="寻址方式 立即数寻址: MOV AX,34H;不能给段寄存器和标志寄存器赋立即数(MOV DS,1250是错误的) 寄存器寻址: 可以是AX,BX,CX,DX,SI,DI,SP,BP;寄存器的位数必须一致(MOV CL,BX是错误的) 内存储器寻址: 取得操作的偏移地址也称为有效地址EA 基本知识 有效地址的组成:位移量+基地址+变址　　　2. 不允许使用跨越前缀的情况:串处理的目的串必须用ES段">
+<meta name="twitter:title" content="8086的指令系统">
+<meta name="twitter:description" content="数据传送指令 通用数据传送指令 MOV传送指令 立即数传送 MOV CX,40 立即数–&amp;gt;寄存器 MOV BYTELD,40 立即数–&amp;gt;存储单元 注意立即数不能直接送到段寄存器,可用通用寄存器过渡: MOV AX,100   MOV DS,AX 寄存器传送 MOV CX,AX 寄存器–&amp;gt;寄存器 MOV BYTELD,AL 寄存器–&amp;gt;存储单元 MOV DS,AX 寄存器–&amp;g">
   
     <link rel="alternative" href="/atom.xml" title="Liang`s Blog" type="application/atom+xml">
   
@@ -269,11 +270,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-基础知识3" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-8086的指令系统" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2017/07/08/基础知识3/" class="article-date">
-      <time datetime="2017-07-08T06:23:22.000Z" itemprop="datePublished">2017-07-08</time>
+      <a  href="/2017/07/12/8086的指令系统/" class="article-date">
+      <time datetime="2017-07-12T03:13:32.000Z" itemprop="datePublished">2017-07-12</time>
 </a>
 
     </div>
@@ -287,7 +288,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      8086指令系统和寻址方式
+      8086的指令系统
     </h1>
   
 
@@ -298,6 +299,10 @@
         
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编/">汇编</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -305,37 +310,105 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h2><ol>
-<li>立即数寻址: MOV AX,34H;不能给段寄存器和标志寄存器赋立即数(MOV DS,1250是错误的)</li>
-<li>寄存器寻址: 可以是AX,BX,CX,DX,SI,DI,SP,BP;寄存器的位数必须一致(MOV CL,BX是错误的)</li>
-<li>内存储器寻址: 取得操作的偏移地址也称为有效地址EA<ol>
-<li>基本知识<ol>
-<li>有效地址的组成:位移量+基地址+变址<br>　　　2. 不允许使用跨越前缀的情况:串处理的目的串必须用ES段;PUSH指令的目的和POP指令的源必须使用SS段;指令必须放在CS段</li>
+        <h2 id="数据传送指令"><a href="#数据传送指令" class="headerlink" title="数据传送指令"></a>数据传送指令</h2><ol>
+<li>通用数据传送指令<ol>
+<li>MOV传送指令<ol>
+<li>立即数传送</li>
+<li>MOV CX,40 立即数–&gt;寄存器</li>
+<li>MOV BYTELD,40 立即数–&gt;存储单元</li>
+<li>注意立即数不能直接送到段寄存器,可用通用寄存器过渡: MOV AX,100   MOV DS,AX</li>
+<li>寄存器传送</li>
+<li>MOV CX,AX 寄存器–&gt;寄存器</li>
+<li>MOV BYTELD,AL 寄存器–&gt;存储单元</li>
+<li>MOV DS,AX 寄存器–&gt;段寄存器(CS除外)</li>
+<li>存储单元传送</li>
+<li>MOV CL,BYTELD 存储单元–&gt;寄存器</li>
+<li>理论上不允许两个存储单元之间传送，传送速度很慢</li>
+<li>段寄存器传送</li>
+<li>MOV AX,DS 段寄存器–&gt;寄存器</li>
+<li>不允许两个段寄存器直接传送，可以用寄存器过渡</li>
 </ol>
 </li>
-<li>直接寻址方式:<ol>
-<li>MOV AX,[2000H]修改AX地址;</li>
-<li>如果在附加段中，应指定段前缀:MOV AX,ES:[values]</li>
+<li>堆栈指令<ol>
+<li>PUSH压栈指令: PUSH 操作数(OPS)</li>
+<li>操作:((SP)-1)–&gt;(SP);(OPS)H–&gt;((SP))&amp;&amp;((SP)-1)–&gt;(SP);(OPS)L–&gt;((SP))</li>
+<li>说明:现将SP减2再进行压栈操作</li>
+<li>POP弹栈指令: POP 操作数(OPS)</li>
+<li>将元素送到某通用寄存器，段寄存(CS除外)，子存储器</li>
+<li>((SP))–&gt;(OPS)L;((SP)+1)–&gt;(SP)&amp;&amp; ((SP)–&gt;(OPS)H);((SP)+1–&gt;(SP))</li>
+<li>先将元素送出再将SP+2</li>
+<li>堆栈指令的注意事项</li>
+<li>PUSH和POP只能是字操作存取字数据SP应加/减2</li>
+<li>PUSH和POP不能使用立即数方式</li>
+<li>POP指令的DST不允许是CS寄存器</li>
+<li>PUSH和POP不影响标志位</li>
+<li>PUSH用于暂存数据，POP用于恢复数据</li>
 </ol>
 </li>
-<li>寄存器间接寻址:<ol>
-<li>MOV AL,[BX];</li>
-<li>操作数只包含BX/BP,SI/DI使用BP省略段SS,其它则省略DS段；</li>
-<li>跨段使用:MOV AX,ES:[BX]</li>
+<li>XCHG交换指令：XCHG OPR1,OPR2<ol>
+<li>直接将OPR1和OPR2的值互换，不需要中间变量的存在</li>
+<li>两个操作数必须有一个在寄存器,可实现寄存器之间或寄存器与存储器之间的交换内容但不允许用段寄存器</li>
+<li>指令可用除立即数外的任何寻址方式</li>
 </ol>
 </li>
-<li>寄存器相对寻址:<ol>
-<li>MOV AX,COUNT[BX];若(DS)=3000H,(BX)=1000H,CONUT=1000H,物理地址是:32000H</li>
-<li>操作数仅有基址/变址指定位移之和<br>　　　3. 使用段跨越:MOV AX,ES:COUNT[BX]</li>
 </ol>
 </li>
-<li>基址变址寻址:<ol>
-<li>操作数的有效地址是基址和变址的内容之和<br>　　　2. MOV AX,[BX][DI]</li>
-<li>使用段跨越:MOV AX,ES:]BX][DI]</li>
+<li>累加器专用传送指令<ol>
+<li>输入指令IN，将信息送入寄存器中<ol>
+<li>IN AL,PORT  (PORT)-&gt;(AL)</li>
+<li>IN AX,PORT  (PORT)-&gt;(AX)</li>
+<li>IN AL,DX    (DX)-&gt;(AL)</li>
+<li>IN AX,DX    (DX)-&gt;(AX)</li>
+<li>如端口值0~255之间，可以直接写入，否则要先送入DX寄存器中</li>
 </ol>
 </li>
-<li>相对基址变址寻址:<ol>
-<li>操作数的有效地址是基址变址和指定的位移量之和<br>　　　2. MOV AX,MASK[BX][DI]</li>
+<li>输出指令OUT,将寄存器的内容送到外部端口中<ol>
+<li>OUT PORT,AL (AL)-&gt;(PORT)</li>
+<li>OUT PORT,AX (AX)-&gt;(PORT)</li>
+<li>OUT DX,AL   (AL)-&gt;(DX)</li>
+<li>OUT DX,AX   (AX)-&gt;(DX)</li>
+</ol>
+</li>
+<li>XLAT换码指令<ol>
+<li>XLAT OPR:(AL)&lt;-((DS)*16+(BX)+(AL))</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>地址传送指令<ol>
+<li>LEA有效地址传送寄存器指令:LEA REG,SRC<ol>
+<li>将源操作数的有效地址送到指令的寄存器，该寄存器不能是段寄存器，源操作数可以使用除立即数好寄存器外的任何一种存储器寻址方式</li>
+<li>LEA BX,LIST与MOV BX,OFFSET LIST作用一样</li>
+</ol>
+</li>
+<li>装入地址指令<ol>
+<li>LDS REG,SRC</li>
+<li>LES REG,SRC</li>
+<li>源操作数只能是存储器的操作数</li>
+<li>将(SRC)存入寄存器，把(SRC+2)存入指定段寄存器:LDS SI,[10H]</li>
+<li>列1:<ul>
+<li>执行前:(DS)=C000H,(C000H)=0180H,(C0012H)=2000H;</li>
+<li>执行后:(SI)=0180H,(DS)=2000H;LEA DI,[BX]</li>
+</ul>
+</li>
+<li>列2:<ul>
+<li>执行前:(DS)=B000H,(BX)=080AH,(B080AH)=05AEH</li>
+<li>执行后:DI=05AEH,ES:4000H</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>类型转化指令<ol>
+<li>CDW:字节-&gt;字<ol>
+<li>AL的内容将扩展到AH中</li>
+<li>(AL)内容最高为1,(AH)为FF;(AL)最高有效0,(AH)为0</li>
+</ol>
+</li>
+<li>CWD:字-&gt;双字<ol>
+<li>AX的内容扩展到DX中</li>
+<li>(AX)最高有效位0，(DX)=0;(AX)最高有效位1 (DX)FFFF</li>
 </ol>
 </li>
 </ol>
@@ -349,13 +422,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2017/07/08/基础知识3/">8086指令系统和寻址方式</a></p>
+        <p><span>本文标题:</span><a  href="/2017/07/12/8086的指令系统/">8086的指令系统</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 Petter 的个人博客">Petter</a></p>
-        <p><span>发布时间:</span>2017年07月08日 - 14时23分</p>
-        <p><span>最后更新:</span>2017年07月08日 - 16时16分</p>
+        <p><span>发布时间:</span>2017年07月12日 - 11时13分</p>
+        <p><span>最后更新:</span>2017年07月12日 - 14时44分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/07/08/基础知识3/" title="8086指令系统和寻址方式">http://yoursite.com/2017/07/08/基础知识3/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/07/08/基础知识3/　　作者: Petter" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/07/12/8086的指令系统/" title="8086的指令系统">http://yoursite.com/2017/07/12/8086的指令系统/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/07/12/8086的指令系统/　　作者: Petter" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -366,18 +439,9 @@
 
 <nav id="article-nav">
   
-    <a  href="/2017/07/11/汇编基础3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          8086指令系统和寻址方式
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2017/07/07/基础知识/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">基础知识</div>
+    <a  href="/2017/07/11/汇编基础3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">8086指令系统和寻址方式</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -389,7 +453,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#寻址方式"><span class="toc-number">1.</span> <span class="toc-text">寻址方式</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据传送指令"><span class="toc-number">1.</span> <span class="toc-text">数据传送指令</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -460,13 +524,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2017/07/11/汇编基础3/" title="上一篇: 8086指令系统和寻址方式">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2017/07/07/基础知识/" title="下一篇: 基础知识">
+            <a  href="/2017/07/11/汇编基础3/" title="下一篇: 8086指令系统和寻址方式">
                 <i class="fa fa-angle-right"></i>
             </a>
         

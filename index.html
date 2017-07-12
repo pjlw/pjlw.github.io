@@ -270,6 +270,171 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-8086的指令系统" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/07/12/8086的指令系统/" class="article-date">
+      <time datetime="2017-07-12T03:13:32.000Z" itemprop="datePublished">2017-07-12</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/07/12/8086的指令系统/">8086的指令系统</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="数据传送指令"><a href="#数据传送指令" class="headerlink" title="数据传送指令"></a>数据传送指令</h2><ol>
+<li>通用数据传送指令<ol>
+<li>MOV传送指令<ol>
+<li>立即数传送</li>
+<li>MOV CX,40 立即数–&gt;寄存器</li>
+<li>MOV BYTELD,40 立即数–&gt;存储单元</li>
+<li>注意立即数不能直接送到段寄存器,可用通用寄存器过渡: MOV AX,100   MOV DS,AX</li>
+<li>寄存器传送</li>
+<li>MOV CX,AX 寄存器–&gt;寄存器</li>
+<li>MOV BYTELD,AL 寄存器–&gt;存储单元</li>
+<li>MOV DS,AX 寄存器–&gt;段寄存器(CS除外)</li>
+<li>存储单元传送</li>
+<li>MOV CL,BYTELD 存储单元–&gt;寄存器</li>
+<li>理论上不允许两个存储单元之间传送，传送速度很慢</li>
+<li>段寄存器传送</li>
+<li>MOV AX,DS 段寄存器–&gt;寄存器</li>
+<li>不允许两个段寄存器直接传送，可以用寄存器过渡</li>
+</ol>
+</li>
+<li>堆栈指令<ol>
+<li>PUSH压栈指令: PUSH 操作数(OPS)</li>
+<li>操作:((SP)-1)–&gt;(SP);(OPS)H–&gt;((SP))&amp;&amp;((SP)-1)–&gt;(SP);(OPS)L–&gt;((SP))</li>
+<li>说明:现将SP减2再进行压栈操作</li>
+<li>POP弹栈指令: POP 操作数(OPS)</li>
+<li>将元素送到某通用寄存器，段寄存(CS除外)，子存储器</li>
+<li>((SP))–&gt;(OPS)L;((SP)+1)–&gt;(SP)&amp;&amp; ((SP)–&gt;(OPS)H);((SP)+1–&gt;(SP))</li>
+<li>先将元素送出再将SP+2</li>
+<li>堆栈指令的注意事项</li>
+<li>PUSH和POP只能是字操作存取字数据SP应加/减2</li>
+<li>PUSH和POP不能使用立即数方式</li>
+<li>POP指令的DST不允许是CS寄存器</li>
+<li>PUSH和POP不影响标志位</li>
+<li>PUSH用于暂存数据，POP用于恢复数据</li>
+</ol>
+</li>
+<li>XCHG交换指令：XCHG OPR1,OPR2<ol>
+<li>直接将OPR1和OPR2的值互换，不需要中间变量的存在</li>
+<li>两个操作数必须有一个在寄存器,可实现寄存器之间或寄存器与存储器之间的交换内容但不允许用段寄存器</li>
+<li>指令可用除立即数外的任何寻址方式</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>累加器专用传送指令<ol>
+<li>输入指令IN，将信息送入寄存器中<ol>
+<li>IN AL,PORT  (PORT)-&gt;(AL)</li>
+<li>IN AX,PORT  (PORT)-&gt;(AX)</li>
+<li>IN AL,DX    (DX)-&gt;(AL)</li>
+<li>IN AX,DX    (DX)-&gt;(AX)</li>
+<li>如端口值0~255之间，可以直接写入，否则要先送入DX寄存器中</li>
+</ol>
+</li>
+<li>输出指令OUT,将寄存器的内容送到外部端口中<ol>
+<li>OUT PORT,AL (AL)-&gt;(PORT)</li>
+<li>OUT PORT,AX (AX)-&gt;(PORT)</li>
+<li>OUT DX,AL   (AL)-&gt;(DX)</li>
+<li>OUT DX,AX   (AX)-&gt;(DX)</li>
+</ol>
+</li>
+<li>XLAT换码指令<ol>
+<li>XLAT OPR:(AL)&lt;-((DS)*16+(BX)+(AL))</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>地址传送指令<ol>
+<li>LEA有效地址传送寄存器指令:LEA REG,SRC<ol>
+<li>将源操作数的有效地址送到指令的寄存器，该寄存器不能是段寄存器，源操作数可以使用除立即数好寄存器外的任何一种存储器寻址方式</li>
+<li>LEA BX,LIST与MOV BX,OFFSET LIST作用一样</li>
+</ol>
+</li>
+<li>装入地址指令<ol>
+<li>LDS REG,SRC</li>
+<li>LES REG,SRC</li>
+<li>源操作数只能是存储器的操作数</li>
+<li>将(SRC)存入寄存器，把(SRC+2)存入指定段寄存器:LDS SI,[10H]</li>
+<li>列1:<ul>
+<li>执行前:(DS)=C000H,(C000H)=0180H,(C0012H)=2000H;</li>
+<li>执行后:(SI)=0180H,(DS)=2000H;LEA DI,[BX]</li>
+</ul>
+</li>
+<li>列2:<ul>
+<li>执行前:(DS)=B000H,(BX)=080AH,(B080AH)=05AEH</li>
+<li>执行后:DI=05AEH,ES:4000H</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>类型转化指令<ol>
+<li>CDW:字节-&gt;字<ol>
+<li>AL的内容将扩展到AH中</li>
+<li>(AL)内容最高为1,(AH)为FF;(AL)最高有效0,(AH)为0</li>
+</ol>
+</li>
+<li>CWD:字-&gt;双字<ol>
+<li>AX的内容扩展到DX中</li>
+<li>(AX)最高有效位0，(DX)=0;(AX)最高有效位1 (DX)FFFF</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编/">汇编</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-汇编基础3" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -933,72 +1098,10 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a  href="/2017/06/09/hello-world/" class="article-date">
-      <time datetime="2017-06-09T06:45:22.330Z" itemprop="datePublished">2017-06-09</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/06/09/hello-world/">Hello World</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 </div>
