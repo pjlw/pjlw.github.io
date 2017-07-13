@@ -7,19 +7,19 @@
   
   
   
-  <title>汇编基础 | Liang`s Blog</title>
+  <title>8086的指令系统2 | Liang`s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="汇编基础汇编大多是指汇编语言，汇编程序。把汇编语言翻译成机器语言的过程称为汇编。在汇编语言中，用助记符(Memoni)代替操作码，用地址符号(Symbol)或标号(Label)代替地址码。这样用符号代替机器语言的二进制码，就把机器语言变成了汇编语言。于是汇编语言亦称为符号语言。用汇编语言编写的程序，机器不能直接识别，要由一种程序将汇编语言翻译成机器语言，这种起翻译作用的程序叫汇编程序，汇编程序是系">
+  <meta name="description" content="算数运算指令加法指令ADD加法指令 ADD DST,SRC  (DST)&amp;lt;-(DST)+(SRC)  ADC带进位加法指令 ADC DST,SRC  (DST)&amp;lt;-(DST)+(SRC)+CF  INC加1指令 INC OPR  (OPR)&amp;lt;-(OPR)+1  减法指令SUB减法指令 SUB DST,SRC  (DST)&amp;lt;-(DST)-(SRC) CF的设置:若减数&amp;gt;">
 <meta name="keywords" content="汇编">
 <meta property="og:type" content="article">
-<meta property="og:title" content="汇编基础">
-<meta property="og:url" content="http://yoursite.com/2017/07/02/汇编基础/index.html">
+<meta property="og:title" content="8086的指令系统2">
+<meta property="og:url" content="http://yoursite.com/2017/07/13/8086的指令系统2/index.html">
 <meta property="og:site_name" content="Liang`s Blog">
-<meta property="og:description" content="汇编基础汇编大多是指汇编语言，汇编程序。把汇编语言翻译成机器语言的过程称为汇编。在汇编语言中，用助记符(Memoni)代替操作码，用地址符号(Symbol)或标号(Label)代替地址码。这样用符号代替机器语言的二进制码，就把机器语言变成了汇编语言。于是汇编语言亦称为符号语言。用汇编语言编写的程序，机器不能直接识别，要由一种程序将汇编语言翻译成机器语言，这种起翻译作用的程序叫汇编程序，汇编程序是系">
-<meta property="og:updated_time" content="2017-07-02T02:18:38.241Z">
+<meta property="og:description" content="算数运算指令加法指令ADD加法指令 ADD DST,SRC  (DST)&amp;lt;-(DST)+(SRC)  ADC带进位加法指令 ADC DST,SRC  (DST)&amp;lt;-(DST)+(SRC)+CF  INC加1指令 INC OPR  (OPR)&amp;lt;-(OPR)+1  减法指令SUB减法指令 SUB DST,SRC  (DST)&amp;lt;-(DST)-(SRC) CF的设置:若减数&amp;gt;">
+<meta property="og:updated_time" content="2017-07-13T04:41:37.976Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="汇编基础">
-<meta name="twitter:description" content="汇编基础汇编大多是指汇编语言，汇编程序。把汇编语言翻译成机器语言的过程称为汇编。在汇编语言中，用助记符(Memoni)代替操作码，用地址符号(Symbol)或标号(Label)代替地址码。这样用符号代替机器语言的二进制码，就把机器语言变成了汇编语言。于是汇编语言亦称为符号语言。用汇编语言编写的程序，机器不能直接识别，要由一种程序将汇编语言翻译成机器语言，这种起翻译作用的程序叫汇编程序，汇编程序是系">
+<meta name="twitter:title" content="8086的指令系统2">
+<meta name="twitter:description" content="算数运算指令加法指令ADD加法指令 ADD DST,SRC  (DST)&amp;lt;-(DST)+(SRC)  ADC带进位加法指令 ADC DST,SRC  (DST)&amp;lt;-(DST)+(SRC)+CF  INC加1指令 INC OPR  (OPR)&amp;lt;-(OPR)+1  减法指令SUB减法指令 SUB DST,SRC  (DST)&amp;lt;-(DST)-(SRC) CF的设置:若减数&amp;gt;">
   
     <link rel="alternative" href="/atom.xml" title="Liang`s Blog" type="application/atom+xml">
   
@@ -270,11 +270,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-汇编基础" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-8086的指令系统2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2017/07/02/汇编基础/" class="article-date">
-      <time datetime="2017-07-02T02:17:11.000Z" itemprop="datePublished">2017-07-02</time>
+      <a  href="/2017/07/13/8086的指令系统2/" class="article-date">
+      <time datetime="2017-07-13T03:14:30.000Z" itemprop="datePublished">2017-07-13</time>
 </a>
 
     </div>
@@ -288,7 +288,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      汇编基础
+      8086的指令系统2
     </h1>
   
 
@@ -310,7 +310,106 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="汇编基础"><a href="#汇编基础" class="headerlink" title="汇编基础"></a>汇编基础</h2><p>汇编大多是指汇编语言，汇编程序。把汇编语言翻译成机器语言的过程称为汇编。在汇编语言中，用助记符(Memoni)代替操作码，用地址符号(Symbol)或标号(Label)代替地址码。这样用符号代替机器语言的二进制码，就把机器语言变成了汇编语言。于是汇编语言亦称为符号语言。用汇编语言编写的程序，机器不能直接识别，要由一种程序将汇编语言翻译成机器语言，这种起翻译作用的程序叫汇编程序，汇编程序是系统软件中语言处理的系统软件。<br>随着现代软件系统越来越庞大复杂，大量经过了封装的高级语言如C/C++，Pascal/Object Pascal也应运而生。这些新的语言使得程序员在开发过程中能够更简单，更有效率，使软件开发人员得以应付快速的软件开发的要求。而汇编语言由于其复杂性使得其适用领域逐步减小。但这并不意味着汇编已无用武之地。由于汇编更接近机器语言，能够直接对硬件进行操作，生成的程序与其他的语言相比具有更高的运行速度，占用更小的内存，因此在一些对于时效性要求很高的程序、许多大型程序的核心模块以及工业控制方面大量应用。<br>此外，虽然有众多编程语言可供选择，但汇编依然是各大学计算机科学类专业学生的必修课，以让学生深入了解计算机的运行原理。</p>
+        <h2 id="算数运算指令"><a href="#算数运算指令" class="headerlink" title="算数运算指令"></a>算数运算指令</h2><h3 id="加法指令"><a href="#加法指令" class="headerlink" title="加法指令"></a>加法指令</h3><h4 id="ADD加法指令"><a href="#ADD加法指令" class="headerlink" title="ADD加法指令"></a>ADD加法指令</h4><ol>
+<li>ADD DST,SRC  (DST)&lt;-(DST)+(SRC)</li>
+</ol>
+<h4 id="ADC带进位加法指令"><a href="#ADC带进位加法指令" class="headerlink" title="ADC带进位加法指令"></a>ADC带进位加法指令</h4><ol>
+<li>ADC DST,SRC  (DST)&lt;-(DST)+(SRC)+CF</li>
+</ol>
+<h4 id="INC加1指令"><a href="#INC加1指令" class="headerlink" title="INC加1指令"></a>INC加1指令</h4><ol>
+<li>INC OPR  (OPR)&lt;-(OPR)+1</li>
+</ol>
+<h3 id="减法指令"><a href="#减法指令" class="headerlink" title="减法指令"></a>减法指令</h3><h4 id="SUB减法指令"><a href="#SUB减法指令" class="headerlink" title="SUB减法指令"></a>SUB减法指令</h4><ol>
+<li>SUB DST,SRC  (DST)&lt;-(DST)-(SRC)</li>
+<li>CF的设置:若减数&gt;被减数 CF=1,否则CF=0;有借位CF=0,无借位CF=1</li>
+<li>OF的设置:两个数符号相反,OF=1;结果的符号与减数相同,OF=0<h4 id="SBB带划位减法"><a href="#SBB带划位减法" class="headerlink" title="SBB带划位减法"></a>SBB带划位减法</h4></li>
+<li>SBB DST,SRC  (DST)&lt;-(DST)-(SRC)-(CF)<h4 id="DEC减一指令"><a href="#DEC减一指令" class="headerlink" title="DEC减一指令"></a>DEC减一指令</h4></li>
+<li>DEC OPR  (OPR)&lt;-(OPR)-1<h4 id="NEG求补指令"><a href="#NEG求补指令" class="headerlink" title="NEG求补指令"></a>NEG求补指令</h4></li>
+<li>NEG OPR  (OPR)&lt;-(-(OPR))<h4 id="CMP比较指令"><a href="#CMP比较指令" class="headerlink" title="CMP比较指令"></a>CMP比较指令</h4></li>
+<li>CMP OPR1,OPR2  (OPR1)-(OPR2),求得的结果并不保存</li>
+</ol>
+<h3 id="乘法指令"><a href="#乘法指令" class="headerlink" title="乘法指令"></a>乘法指令</h3><h4 id="MUL无符号数乘法-MUL-OPR"><a href="#MUL无符号数乘法-MUL-OPR" class="headerlink" title="MUL无符号数乘法: MUL OPR"></a>MUL无符号数乘法: MUL OPR</h4><ol>
+<li>字节操作:(AX)&lt;-(AL)*(OPR)</li>
+<li>字操作:(DX):(AX)&lt;-(AX)*(OPR)</li>
+<li>CF和OF的设置:若乘积的高一半为0,即字节操作的(AH)或字操作(DX)为0,CF和OF均为0,否则CF,OF均为1</li>
+</ol>
+<h4 id="I-MUL-有符号数乘法-I-MUL-OPR"><a href="#I-MUL-有符号数乘法-I-MUL-OPR" class="headerlink" title="I MUL 有符号数乘法: I MUL OPR"></a>I MUL 有符号数乘法: I MUL OPR</h4><ol>
+<li>字节操作:(AX)&lt;-(AL)*OPR</li>
+<li>字操作:(DX):(AX)&lt;-(AX)*OPR</li>
+<li>CF和OF的设置:若乘积的高一半是第一半的符号扩展那么CF和OF为0,否则CF和OF均为1</li>
+</ol>
+<h3 id="除法指令"><a href="#除法指令" class="headerlink" title="除法指令"></a>除法指令</h3><h4 id="DIV无符号数除法：DIV-OPR"><a href="#DIV无符号数除法：DIV-OPR" class="headerlink" title="DIV无符号数除法：DIV OPR"></a>DIV无符号数除法：DIV OPR</h4><ol>
+<li>16位操作:(AX)/(OPR)-&gt; AL商;(AX)/(OPR)-&gt; AX为余</li>
+<li>32位操作:(DX:AX)/(OPR)-&gt; AX为商;(DX:AX)/(OPR)-&gt; DX为余</li>
+</ol>
+<h4 id="I-DIV有符号数除法：I-DIV-OPR"><a href="#I-DIV有符号数除法：I-DIV-OPR" class="headerlink" title="I DIV有符号数除法：I DIV OPR"></a>I DIV有符号数除法：I DIV OPR</h4><ol>
+<li>商和余都是有符号的</li>
+<li>若被除数的高8位绝对值&gt;=除数的绝对值,商就会溢出</li>
+</ol>
+<h3 id="逻辑指令"><a href="#逻辑指令" class="headerlink" title="逻辑指令"></a>逻辑指令</h3><h4 id="逻辑运算指令"><a href="#逻辑运算指令" class="headerlink" title="逻辑运算指令"></a>逻辑运算指令</h4><h5 id="AND逻辑与指令"><a href="#AND逻辑与指令" class="headerlink" title="AND逻辑与指令"></a>AND逻辑与指令</h5><ol>
+<li>ADD DST,SRC  DST&lt;-DST^SRC</li>
+<li>可用于修改操作数或将某些位置0</li>
+</ol>
+<h5 id="OR逻辑或指令"><a href="#OR逻辑或指令" class="headerlink" title="OR逻辑或指令"></a>OR逻辑或指令</h5><ol>
+<li>OR DST,SRC  DST&lt;-DSTvSRC</li>
+<li>结果送进操作数,可将某些位置置1</li>
+</ol>
+<h5 id="XOR逻辑异或指令"><a href="#XOR逻辑异或指令" class="headerlink" title="XOR逻辑异或指令"></a>XOR逻辑异或指令</h5><ol>
+<li>XOR DST,SRC 结果送回目的操作数</li>
+<li>主要用于清零,或某些位取反操作</li>
+</ol>
+<h5 id="TEST测试指令"><a href="#TEST测试指令" class="headerlink" title="TEST测试指令"></a>TEST测试指令</h5><ol>
+<li>TEST OPR1,OPR2</li>
+<li>不会改变操作数的值要测试那些位就将OPR2中的位置置1,其它为0</li>
+</ol>
+<h4 id="移位指令"><a href="#移位指令" class="headerlink" title="移位指令"></a>移位指令</h4><h5 id="算数-逻辑左移指令"><a href="#算数-逻辑左移指令" class="headerlink" title="算数,逻辑左移指令"></a>算数,逻辑左移指令</h5><ol>
+<li>SAL/SHL DST,COUNT</li>
+<li>CF将会存入最后移入位的值，低位用0补足</li>
+<li>可用于实现有符号数和无符号数的2的n次方的乘法</li>
+</ol>
+<h5 id="算数右移指令"><a href="#算数右移指令" class="headerlink" title="算数右移指令"></a>算数右移指令</h5><ol>
+<li>SAR DST,COUNT</li>
+<li>CF将存入最后移入的值</li>
+<li>可用于实现有符号数的2的n次方的除法</li>
+</ol>
+<h5 id="逻辑右移指令"><a href="#逻辑右移指令" class="headerlink" title="逻辑右移指令"></a>逻辑右移指令</h5><ol>
+<li>SHR DST,COUNT</li>
+<li>CF将存入最后移入位的值</li>
+<li>可用于实现无符号数的2的n次方的除法</li>
+</ol>
+<h5 id="循环左移"><a href="#循环左移" class="headerlink" title="循环左移"></a>循环左移</h5><ol>
+<li>ROL DST,COUNT</li>
+<li>CF为最后移入位的值</li>
+</ol>
+<h5 id="循环右移"><a href="#循环右移" class="headerlink" title="循环右移"></a>循环右移</h5><ol>
+<li>RCL DST,COUNT</li>
+<li>连同CF标志位一起移动</li>
+</ol>
+<h3 id="逻辑指令-1"><a href="#逻辑指令-1" class="headerlink" title="逻辑指令"></a>逻辑指令</h3><h4 id="设置方向标志指令"><a href="#设置方向标志指令" class="headerlink" title="设置方向标志指令"></a>设置方向标志指令</h4><ol>
+<li>CLD使DF=0，使串处理指令自加</li>
+<li>STD使DF=1，使串处理指令自减</li>
+</ol>
+<h4 id="串处理指令"><a href="#串处理指令" class="headerlink" title="串处理指令"></a>串处理指令</h4><h5 id="MOVSB-MOVSW-串传送"><a href="#MOVSB-MOVSW-串传送" class="headerlink" title="MOVSB/MOVSW 串传送"></a>MOVSB/MOVSW 串传送</h5><ol>
+<li>(ES:DI)&lt;-(DS:SI)</li>
+<li>(SI)&lt;-(SI)加/减2</li>
+<li>(DI)&lt;-DI加或减(1或2)</li>
+</ol>
+<h5 id="STOSB-STOSW-存串"><a href="#STOSB-STOSW-存串" class="headerlink" title="STOSB/STOSW 存串"></a>STOSB/STOSW 存串</h5><ol>
+<li>(ES:DI)&lt;-AL/AX</li>
+<li>(DI)&lt;-DI加/减(1或2)</li>
+</ol>
+<h5 id="LODSB-LODSW取串"><a href="#LODSB-LODSW取串" class="headerlink" title="LODSB/LODSW取串"></a>LODSB/LODSW取串</h5><ol>
+<li>AL/AX&lt;-(DS:SI)</li>
+<li>(SI)&lt;-(SI)加/减(1或2)</li>
+</ol>
+<h5 id="CMPSB-CMPSW串比较"><a href="#CMPSB-CMPSW串比较" class="headerlink" title="CMPSB/CMPSW串比较"></a>CMPSB/CMPSW串比较</h5><ol>
+<li>(DS:SI)&lt;-(ES:DI)</li>
+<li>(SI)&lt;-(SI)加/减(1或2)</li>
+<li>(DI)&lt;-(DI)加/减(1或2)</li>
+</ol>
+<h5 id="SCASB-SCASW串扫描"><a href="#SCASB-SCASW串扫描" class="headerlink" title="SCASB/SCASW串扫描"></a>SCASB/SCASW串扫描</h5><ol>
+<li>(DI)&lt;-(DI)加/减(1或2)</li>
+</ol>
 
       
     </div>
@@ -319,13 +418,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2017/07/02/汇编基础/">汇编基础</a></p>
+        <p><span>本文标题:</span><a  href="/2017/07/13/8086的指令系统2/">8086的指令系统2</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 Petter 的个人博客">Petter</a></p>
-        <p><span>发布时间:</span>2017年07月02日 - 10时17分</p>
-        <p><span>最后更新:</span>2017年07月02日 - 10时18分</p>
+        <p><span>发布时间:</span>2017年07月13日 - 11时14分</p>
+        <p><span>最后更新:</span>2017年07月13日 - 12时41分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/07/02/汇编基础/" title="汇编基础">http://yoursite.com/2017/07/02/汇编基础/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/07/02/汇编基础/　　作者: Petter" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/07/13/8086的指令系统2/" title="8086的指令系统2">http://yoursite.com/2017/07/13/8086的指令系统2/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/07/13/8086的指令系统2/　　作者: Petter" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -336,18 +435,9 @@
 
 <nav id="article-nav">
   
-    <a  href="/2017/07/02/编译环境/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          汇编
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2017/06/21/诗2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">诗</div>
+    <a  href="/2017/07/12/8086的指令系统/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">8086的指令系统</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -359,7 +449,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编基础"><span class="toc-number">1.</span> <span class="toc-text">汇编基础</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#算数运算指令"><span class="toc-number">1.</span> <span class="toc-text">算数运算指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#加法指令"><span class="toc-number">1.1.</span> <span class="toc-text">加法指令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ADD加法指令"><span class="toc-number">1.1.1.</span> <span class="toc-text">ADD加法指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ADC带进位加法指令"><span class="toc-number">1.1.2.</span> <span class="toc-text">ADC带进位加法指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#INC加1指令"><span class="toc-number">1.1.3.</span> <span class="toc-text">INC加1指令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#减法指令"><span class="toc-number">1.2.</span> <span class="toc-text">减法指令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SUB减法指令"><span class="toc-number">1.2.1.</span> <span class="toc-text">SUB减法指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SBB带划位减法"><span class="toc-number">1.2.2.</span> <span class="toc-text">SBB带划位减法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DEC减一指令"><span class="toc-number">1.2.3.</span> <span class="toc-text">DEC减一指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NEG求补指令"><span class="toc-number">1.2.4.</span> <span class="toc-text">NEG求补指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CMP比较指令"><span class="toc-number">1.2.5.</span> <span class="toc-text">CMP比较指令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#乘法指令"><span class="toc-number">1.3.</span> <span class="toc-text">乘法指令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#MUL无符号数乘法-MUL-OPR"><span class="toc-number">1.3.1.</span> <span class="toc-text">MUL无符号数乘法: MUL OPR</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#I-MUL-有符号数乘法-I-MUL-OPR"><span class="toc-number">1.3.2.</span> <span class="toc-text">I MUL 有符号数乘法: I MUL OPR</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#除法指令"><span class="toc-number">1.4.</span> <span class="toc-text">除法指令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DIV无符号数除法：DIV-OPR"><span class="toc-number">1.4.1.</span> <span class="toc-text">DIV无符号数除法：DIV OPR</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#I-DIV有符号数除法：I-DIV-OPR"><span class="toc-number">1.4.2.</span> <span class="toc-text">I DIV有符号数除法：I DIV OPR</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逻辑指令"><span class="toc-number">1.5.</span> <span class="toc-text">逻辑指令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#逻辑运算指令"><span class="toc-number">1.5.1.</span> <span class="toc-text">逻辑运算指令</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#AND逻辑与指令"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">AND逻辑与指令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#OR逻辑或指令"><span class="toc-number">1.5.1.2.</span> <span class="toc-text">OR逻辑或指令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#XOR逻辑异或指令"><span class="toc-number">1.5.1.3.</span> <span class="toc-text">XOR逻辑异或指令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#TEST测试指令"><span class="toc-number">1.5.1.4.</span> <span class="toc-text">TEST测试指令</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#移位指令"><span class="toc-number">1.5.2.</span> <span class="toc-text">移位指令</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#算数-逻辑左移指令"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">算数,逻辑左移指令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#算数右移指令"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">算数右移指令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#逻辑右移指令"><span class="toc-number">1.5.2.3.</span> <span class="toc-text">逻辑右移指令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#循环左移"><span class="toc-number">1.5.2.4.</span> <span class="toc-text">循环左移</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#循环右移"><span class="toc-number">1.5.2.5.</span> <span class="toc-text">循环右移</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逻辑指令-1"><span class="toc-number">1.6.</span> <span class="toc-text">逻辑指令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#设置方向标志指令"><span class="toc-number">1.6.1.</span> <span class="toc-text">设置方向标志指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#串处理指令"><span class="toc-number">1.6.2.</span> <span class="toc-text">串处理指令</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#MOVSB-MOVSW-串传送"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">MOVSB/MOVSW 串传送</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#STOSB-STOSW-存串"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">STOSB/STOSW 存串</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#LODSB-LODSW取串"><span class="toc-number">1.6.2.3.</span> <span class="toc-text">LODSB/LODSW取串</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CMPSB-CMPSW串比较"><span class="toc-number">1.6.2.4.</span> <span class="toc-text">CMPSB/CMPSW串比较</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SCASB-SCASW串扫描"><span class="toc-number">1.6.2.5.</span> <span class="toc-text">SCASB/SCASW串扫描</span></a></li></ol></li></ol></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -430,13 +520,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2017/07/02/编译环境/" title="上一篇: 汇编">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2017/06/21/诗2/" title="下一篇: 诗">
+            <a  href="/2017/07/12/8086的指令系统/" title="下一篇: 8086的指令系统">
                 <i class="fa fa-angle-right"></i>
             </a>
         

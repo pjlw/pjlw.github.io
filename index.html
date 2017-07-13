@@ -270,6 +270,167 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-8086的指令系统2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/07/13/8086的指令系统2/" class="article-date">
+      <time datetime="2017-07-13T03:14:30.000Z" itemprop="datePublished">2017-07-13</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/07/13/8086的指令系统2/">8086的指令系统2</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="算数运算指令"><a href="#算数运算指令" class="headerlink" title="算数运算指令"></a>算数运算指令</h2><h3 id="加法指令"><a href="#加法指令" class="headerlink" title="加法指令"></a>加法指令</h3><h4 id="ADD加法指令"><a href="#ADD加法指令" class="headerlink" title="ADD加法指令"></a>ADD加法指令</h4><ol>
+<li>ADD DST,SRC  (DST)&lt;-(DST)+(SRC)</li>
+</ol>
+<h4 id="ADC带进位加法指令"><a href="#ADC带进位加法指令" class="headerlink" title="ADC带进位加法指令"></a>ADC带进位加法指令</h4><ol>
+<li>ADC DST,SRC  (DST)&lt;-(DST)+(SRC)+CF</li>
+</ol>
+<h4 id="INC加1指令"><a href="#INC加1指令" class="headerlink" title="INC加1指令"></a>INC加1指令</h4><ol>
+<li>INC OPR  (OPR)&lt;-(OPR)+1</li>
+</ol>
+<h3 id="减法指令"><a href="#减法指令" class="headerlink" title="减法指令"></a>减法指令</h3><h4 id="SUB减法指令"><a href="#SUB减法指令" class="headerlink" title="SUB减法指令"></a>SUB减法指令</h4><ol>
+<li>SUB DST,SRC  (DST)&lt;-(DST)-(SRC)</li>
+<li>CF的设置:若减数&gt;被减数 CF=1,否则CF=0;有借位CF=0,无借位CF=1</li>
+<li>OF的设置:两个数符号相反,OF=1;结果的符号与减数相同,OF=0<h4 id="SBB带划位减法"><a href="#SBB带划位减法" class="headerlink" title="SBB带划位减法"></a>SBB带划位减法</h4></li>
+<li>SBB DST,SRC  (DST)&lt;-(DST)-(SRC)-(CF)<h4 id="DEC减一指令"><a href="#DEC减一指令" class="headerlink" title="DEC减一指令"></a>DEC减一指令</h4></li>
+<li>DEC OPR  (OPR)&lt;-(OPR)-1<h4 id="NEG求补指令"><a href="#NEG求补指令" class="headerlink" title="NEG求补指令"></a>NEG求补指令</h4></li>
+<li>NEG OPR  (OPR)&lt;-(-(OPR))<h4 id="CMP比较指令"><a href="#CMP比较指令" class="headerlink" title="CMP比较指令"></a>CMP比较指令</h4></li>
+<li>CMP OPR1,OPR2  (OPR1)-(OPR2),求得的结果并不保存</li>
+</ol>
+<h3 id="乘法指令"><a href="#乘法指令" class="headerlink" title="乘法指令"></a>乘法指令</h3><h4 id="MUL无符号数乘法-MUL-OPR"><a href="#MUL无符号数乘法-MUL-OPR" class="headerlink" title="MUL无符号数乘法: MUL OPR"></a>MUL无符号数乘法: MUL OPR</h4><ol>
+<li>字节操作:(AX)&lt;-(AL)*(OPR)</li>
+<li>字操作:(DX):(AX)&lt;-(AX)*(OPR)</li>
+<li>CF和OF的设置:若乘积的高一半为0,即字节操作的(AH)或字操作(DX)为0,CF和OF均为0,否则CF,OF均为1</li>
+</ol>
+<h4 id="I-MUL-有符号数乘法-I-MUL-OPR"><a href="#I-MUL-有符号数乘法-I-MUL-OPR" class="headerlink" title="I MUL 有符号数乘法: I MUL OPR"></a>I MUL 有符号数乘法: I MUL OPR</h4><ol>
+<li>字节操作:(AX)&lt;-(AL)*OPR</li>
+<li>字操作:(DX):(AX)&lt;-(AX)*OPR</li>
+<li>CF和OF的设置:若乘积的高一半是第一半的符号扩展那么CF和OF为0,否则CF和OF均为1</li>
+</ol>
+<h3 id="除法指令"><a href="#除法指令" class="headerlink" title="除法指令"></a>除法指令</h3><h4 id="DIV无符号数除法：DIV-OPR"><a href="#DIV无符号数除法：DIV-OPR" class="headerlink" title="DIV无符号数除法：DIV OPR"></a>DIV无符号数除法：DIV OPR</h4><ol>
+<li>16位操作:(AX)/(OPR)-&gt; AL商;(AX)/(OPR)-&gt; AX为余</li>
+<li>32位操作:(DX:AX)/(OPR)-&gt; AX为商;(DX:AX)/(OPR)-&gt; DX为余</li>
+</ol>
+<h4 id="I-DIV有符号数除法：I-DIV-OPR"><a href="#I-DIV有符号数除法：I-DIV-OPR" class="headerlink" title="I DIV有符号数除法：I DIV OPR"></a>I DIV有符号数除法：I DIV OPR</h4><ol>
+<li>商和余都是有符号的</li>
+<li>若被除数的高8位绝对值&gt;=除数的绝对值,商就会溢出</li>
+</ol>
+<h3 id="逻辑指令"><a href="#逻辑指令" class="headerlink" title="逻辑指令"></a>逻辑指令</h3><h4 id="逻辑运算指令"><a href="#逻辑运算指令" class="headerlink" title="逻辑运算指令"></a>逻辑运算指令</h4><h5 id="AND逻辑与指令"><a href="#AND逻辑与指令" class="headerlink" title="AND逻辑与指令"></a>AND逻辑与指令</h5><ol>
+<li>ADD DST,SRC  DST&lt;-DST^SRC</li>
+<li>可用于修改操作数或将某些位置0</li>
+</ol>
+<h5 id="OR逻辑或指令"><a href="#OR逻辑或指令" class="headerlink" title="OR逻辑或指令"></a>OR逻辑或指令</h5><ol>
+<li>OR DST,SRC  DST&lt;-DSTvSRC</li>
+<li>结果送进操作数,可将某些位置置1</li>
+</ol>
+<h5 id="XOR逻辑异或指令"><a href="#XOR逻辑异或指令" class="headerlink" title="XOR逻辑异或指令"></a>XOR逻辑异或指令</h5><ol>
+<li>XOR DST,SRC 结果送回目的操作数</li>
+<li>主要用于清零,或某些位取反操作</li>
+</ol>
+<h5 id="TEST测试指令"><a href="#TEST测试指令" class="headerlink" title="TEST测试指令"></a>TEST测试指令</h5><ol>
+<li>TEST OPR1,OPR2</li>
+<li>不会改变操作数的值要测试那些位就将OPR2中的位置置1,其它为0</li>
+</ol>
+<h4 id="移位指令"><a href="#移位指令" class="headerlink" title="移位指令"></a>移位指令</h4><h5 id="算数-逻辑左移指令"><a href="#算数-逻辑左移指令" class="headerlink" title="算数,逻辑左移指令"></a>算数,逻辑左移指令</h5><ol>
+<li>SAL/SHL DST,COUNT</li>
+<li>CF将会存入最后移入位的值，低位用0补足</li>
+<li>可用于实现有符号数和无符号数的2的n次方的乘法</li>
+</ol>
+<h5 id="算数右移指令"><a href="#算数右移指令" class="headerlink" title="算数右移指令"></a>算数右移指令</h5><ol>
+<li>SAR DST,COUNT</li>
+<li>CF将存入最后移入的值</li>
+<li>可用于实现有符号数的2的n次方的除法</li>
+</ol>
+<h5 id="逻辑右移指令"><a href="#逻辑右移指令" class="headerlink" title="逻辑右移指令"></a>逻辑右移指令</h5><ol>
+<li>SHR DST,COUNT</li>
+<li>CF将存入最后移入位的值</li>
+<li>可用于实现无符号数的2的n次方的除法</li>
+</ol>
+<h5 id="循环左移"><a href="#循环左移" class="headerlink" title="循环左移"></a>循环左移</h5><ol>
+<li>ROL DST,COUNT</li>
+<li>CF为最后移入位的值</li>
+</ol>
+<h5 id="循环右移"><a href="#循环右移" class="headerlink" title="循环右移"></a>循环右移</h5><ol>
+<li>RCL DST,COUNT</li>
+<li>连同CF标志位一起移动</li>
+</ol>
+<h3 id="逻辑指令-1"><a href="#逻辑指令-1" class="headerlink" title="逻辑指令"></a>逻辑指令</h3><h4 id="设置方向标志指令"><a href="#设置方向标志指令" class="headerlink" title="设置方向标志指令"></a>设置方向标志指令</h4><ol>
+<li>CLD使DF=0，使串处理指令自加</li>
+<li>STD使DF=1，使串处理指令自减</li>
+</ol>
+<h4 id="串处理指令"><a href="#串处理指令" class="headerlink" title="串处理指令"></a>串处理指令</h4><h5 id="MOVSB-MOVSW-串传送"><a href="#MOVSB-MOVSW-串传送" class="headerlink" title="MOVSB/MOVSW 串传送"></a>MOVSB/MOVSW 串传送</h5><ol>
+<li>(ES:DI)&lt;-(DS:SI)</li>
+<li>(SI)&lt;-(SI)加/减2</li>
+<li>(DI)&lt;-DI加或减(1或2)</li>
+</ol>
+<h5 id="STOSB-STOSW-存串"><a href="#STOSB-STOSW-存串" class="headerlink" title="STOSB/STOSW 存串"></a>STOSB/STOSW 存串</h5><ol>
+<li>(ES:DI)&lt;-AL/AX</li>
+<li>(DI)&lt;-DI加/减(1或2)</li>
+</ol>
+<h5 id="LODSB-LODSW取串"><a href="#LODSB-LODSW取串" class="headerlink" title="LODSB/LODSW取串"></a>LODSB/LODSW取串</h5><ol>
+<li>AL/AX&lt;-(DS:SI)</li>
+<li>(SI)&lt;-(SI)加/减(1或2)</li>
+</ol>
+<h5 id="CMPSB-CMPSW串比较"><a href="#CMPSB-CMPSW串比较" class="headerlink" title="CMPSB/CMPSW串比较"></a>CMPSB/CMPSW串比较</h5><ol>
+<li>(DS:SI)&lt;-(ES:DI)</li>
+<li>(SI)&lt;-(SI)加/减(1或2)</li>
+<li>(DI)&lt;-(DI)加/减(1或2)</li>
+</ol>
+<h5 id="SCASB-SCASW串扫描"><a href="#SCASB-SCASW串扫描" class="headerlink" title="SCASB/SCASW串扫描"></a>SCASB/SCASW串扫描</h5><ol>
+<li>(DI)&lt;-(DI)加/减(1或2)</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编/">汇编</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-8086的指令系统" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -951,68 +1112,6 @@
       
           
         <h2 id="错过"><a href="#错过" class="headerlink" title="错过"></a>错过</h2><p>曾经我认为，<br>你就是我人生中的Exception，<br>只要try my luck，<br>偶尔还能catch到你，<br>可是事实却是你是指数函数，<br>我是对数函数，<br>只有两次相交的机会。<br>人生再无异常，<br>再也不会遇见你了。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/诗句/">诗句</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-诗" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/06/21/诗/" class="article-date">
-      <time datetime="2017-06-20T23:45:15.000Z" itemprop="datePublished">2017-06-21</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/06/21/诗/">诗</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="想你"><a href="#想你" class="headerlink" title="想你"></a>想你</h2><p>虽然只见你一两次，<br>但我早已将你的笑容<br>进行了一次深拷贝，<br>压在我记忆中的栈里。<br>不时会pop出你的笑容，<br>再次进行各种拷贝，<br>再push进去，<br>直到stackoverflow的那一天。<br>如果非要对这个进程算出周转时间，<br>那大概是一万年。<br>因为上帝在new出我的时候，<br>构造函数里专门为你分配了1TB的内存。</p>
 
       
     </div>
