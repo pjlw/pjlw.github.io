@@ -16,7 +16,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/13/8086的指令系统2/index.html">
 <meta property="og:site_name" content="Liang`s Blog">
 <meta property="og:description" content="算数运算指令加法指令ADD加法指令 ADD DST,SRC  (DST)&amp;lt;-(DST)+(SRC)  ADC带进位加法指令 ADC DST,SRC  (DST)&amp;lt;-(DST)+(SRC)+CF  INC加1指令 INC OPR  (OPR)&amp;lt;-(OPR)+1  减法指令SUB减法指令 SUB DST,SRC  (DST)&amp;lt;-(DST)-(SRC) CF的设置:若减数&amp;gt;">
-<meta property="og:updated_time" content="2017-07-13T04:41:37.976Z">
+<meta property="og:updated_time" content="2017-07-13T04:43:40.519Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="8086的指令系统2">
 <meta name="twitter:description" content="算数运算指令加法指令ADD加法指令 ADD DST,SRC  (DST)&amp;lt;-(DST)+(SRC)  ADC带进位加法指令 ADC DST,SRC  (DST)&amp;lt;-(DST)+(SRC)+CF  INC加1指令 INC OPR  (OPR)&amp;lt;-(OPR)+1  减法指令SUB减法指令 SUB DST,SRC  (DST)&amp;lt;-(DST)-(SRC) CF的设置:若减数&amp;gt;">
@@ -322,10 +322,18 @@
 <h3 id="减法指令"><a href="#减法指令" class="headerlink" title="减法指令"></a>减法指令</h3><h4 id="SUB减法指令"><a href="#SUB减法指令" class="headerlink" title="SUB减法指令"></a>SUB减法指令</h4><ol>
 <li>SUB DST,SRC  (DST)&lt;-(DST)-(SRC)</li>
 <li>CF的设置:若减数&gt;被减数 CF=1,否则CF=0;有借位CF=0,无借位CF=1</li>
-<li>OF的设置:两个数符号相反,OF=1;结果的符号与减数相同,OF=0<h4 id="SBB带划位减法"><a href="#SBB带划位减法" class="headerlink" title="SBB带划位减法"></a>SBB带划位减法</h4></li>
-<li>SBB DST,SRC  (DST)&lt;-(DST)-(SRC)-(CF)<h4 id="DEC减一指令"><a href="#DEC减一指令" class="headerlink" title="DEC减一指令"></a>DEC减一指令</h4></li>
-<li>DEC OPR  (OPR)&lt;-(OPR)-1<h4 id="NEG求补指令"><a href="#NEG求补指令" class="headerlink" title="NEG求补指令"></a>NEG求补指令</h4></li>
-<li>NEG OPR  (OPR)&lt;-(-(OPR))<h4 id="CMP比较指令"><a href="#CMP比较指令" class="headerlink" title="CMP比较指令"></a>CMP比较指令</h4></li>
+<li>OF的设置:两个数符号相反,OF=1;结果的符号与减数相同,OF=0</li>
+</ol>
+<h4 id="SBB带划位减法"><a href="#SBB带划位减法" class="headerlink" title="SBB带划位减法"></a>SBB带划位减法</h4><ol>
+<li>SBB DST,SRC  (DST)&lt;-(DST)-(SRC)-(CF)</li>
+</ol>
+<h4 id="DEC减一指令"><a href="#DEC减一指令" class="headerlink" title="DEC减一指令"></a>DEC减一指令</h4><ol>
+<li>DEC OPR  (OPR)&lt;-(OPR)-1</li>
+</ol>
+<h4 id="NEG求补指令"><a href="#NEG求补指令" class="headerlink" title="NEG求补指令"></a>NEG求补指令</h4><ol>
+<li>NEG OPR  (OPR)&lt;-(-(OPR))</li>
+</ol>
+<h4 id="CMP比较指令"><a href="#CMP比较指令" class="headerlink" title="CMP比较指令"></a>CMP比较指令</h4><ol>
 <li>CMP OPR1,OPR2  (OPR1)-(OPR2),求得的结果并不保存</li>
 </ol>
 <h3 id="乘法指令"><a href="#乘法指令" class="headerlink" title="乘法指令"></a>乘法指令</h3><h4 id="MUL无符号数乘法-MUL-OPR"><a href="#MUL无符号数乘法-MUL-OPR" class="headerlink" title="MUL无符号数乘法: MUL OPR"></a>MUL无符号数乘法: MUL OPR</h4><ol>
@@ -421,7 +429,7 @@
         <p><span>本文标题:</span><a  href="/2017/07/13/8086的指令系统2/">8086的指令系统2</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 Petter 的个人博客">Petter</a></p>
         <p><span>发布时间:</span>2017年07月13日 - 11时14分</p>
-        <p><span>最后更新:</span>2017年07月13日 - 12时41分</p>
+        <p><span>最后更新:</span>2017年07月13日 - 12时43分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/07/13/8086的指令系统2/" title="8086的指令系统2">http://yoursite.com/2017/07/13/8086的指令系统2/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/07/13/8086的指令系统2/　　作者: Petter" title=""></span>
