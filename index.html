@@ -270,6 +270,148 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-条件转移指令" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/07/14/条件转移指令/" class="article-date">
+      <time datetime="2017-07-14T00:28:06.000Z" itemprop="datePublished">2017-07-14</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/07/14/条件转移指令/">转移指令</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="条件转移指令"><a href="#条件转移指令" class="headerlink" title="条件转移指令"></a>条件转移指令</h2><h3 id="简单的条件转移指令"><a href="#简单的条件转移指令" class="headerlink" title="简单的条件转移指令"></a>简单的条件转移指令</h3><h4 id="JZ-JE"><a href="#JZ-JE" class="headerlink" title="JZ/JE"></a>JZ/JE</h4><ol>
+<li>结果相等或为0转移</li>
+<li>ZF=1</li>
+</ol>
+<h4 id="JNE-JNZ"><a href="#JNE-JNZ" class="headerlink" title="JNE/JNZ"></a>JNE/JNZ</h4><ol>
+<li>结果不相等或不为0转移</li>
+<li>ZF=0</li>
+</ol>
+<h4 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h4><ol>
+<li>结果为负转移</li>
+<li>SF=1</li>
+</ol>
+<h4 id="JNS"><a href="#JNS" class="headerlink" title="JNS"></a>JNS</h4><ol>
+<li>结果不为负转移</li>
+<li>SF=0</li>
+</ol>
+<h4 id="JO"><a href="#JO" class="headerlink" title="JO"></a>JO</h4><ol>
+<li>溢出就转移</li>
+<li>OF=1</li>
+</ol>
+<h4 id="JNO"><a href="#JNO" class="headerlink" title="JNO"></a>JNO</h4><ol>
+<li>无溢出就转移</li>
+<li>OF=0</li>
+</ol>
+<h4 id="JC"><a href="#JC" class="headerlink" title="JC"></a>JC</h4><ol>
+<li>有进位转移</li>
+<li>CF=1</li>
+</ol>
+<h4 id="JNC"><a href="#JNC" class="headerlink" title="JNC"></a>JNC</h4><ol>
+<li>无进位转移</li>
+<li>CF=0</li>
+</ol>
+<h4 id="JP"><a href="#JP" class="headerlink" title="JP"></a>JP</h4><ol>
+<li>偶数个1转移</li>
+<li>PF=1</li>
+</ol>
+<h4 id="JNP"><a href="#JNP" class="headerlink" title="JNP"></a>JNP</h4><ol>
+<li>奇数个1转移</li>
+<li>PF=0</li>
+</ol>
+<h4 id="JCXZ"><a href="#JCXZ" class="headerlink" title="JCXZ"></a>JCXZ</h4><ol>
+<li>CF=0转移</li>
+<li>无</li>
+</ol>
+<h3 id="无符号条件转移指令"><a href="#无符号条件转移指令" class="headerlink" title="无符号条件转移指令"></a>无符号条件转移指令</h3><h4 id="JA-JNBE"><a href="#JA-JNBE" class="headerlink" title="JA/JNBE"></a>JA/JNBE</h4><ol>
+<li>大于/不小于等于转移</li>
+<li>CF=0且ZF=0</li>
+</ol>
+<h4 id="JAE-JNB"><a href="#JAE-JNB" class="headerlink" title="JAE/JNB"></a>JAE/JNB</h4><ol>
+<li>大于等于/不低于转移</li>
+<li>CF=0且ＺＦ＝１</li>
+</ol>
+<h4 id="JB-JNAE"><a href="#JB-JNAE" class="headerlink" title="JB/JNAE"></a>JB/JNAE</h4><ol>
+<li>小于/不大于等于转移</li>
+<li>CF=1且ZF=0</li>
+</ol>
+<h4 id="JBE-JNA"><a href="#JBE-JNA" class="headerlink" title="JBE/JNA"></a>JBE/JNA</h4><ol>
+<li>小于等于/不大于转移</li>
+<li>CF=1且ZF=1</li>
+</ol>
+<h3 id="有符号数转移指令"><a href="#有符号数转移指令" class="headerlink" title="有符号数转移指令"></a>有符号数转移指令</h3><h4 id="JG-JNLE"><a href="#JG-JNLE" class="headerlink" title="JG/JNLE"></a>JG/JNLE</h4><ol>
+<li>大于/不小于</li>
+<li>SF=OF且ZF=0</li>
+</ol>
+<h4 id="JGE-JNL"><a href="#JGE-JNL" class="headerlink" title="JGE/JNL"></a>JGE/JNL</h4><ol>
+<li>大于等于/不小于</li>
+<li>SF=OF且ZF=1</li>
+</ol>
+<h4 id="JL-JNGE"><a href="#JL-JNGE" class="headerlink" title="JL/JNGE"></a>JL/JNGE</h4><ol>
+<li>小于/不大于等于</li>
+<li>SF!=OF且ZF=0</li>
+</ol>
+<h4 id="JLE-JNG"><a href="#JLE-JNG" class="headerlink" title="JLE/JNG"></a>JLE/JNG</h4><ol>
+<li>小于等于/不大于</li>
+<li>SF!=OF且ZF=1</li>
+</ol>
+<h4 id="有条件转移和无条件转移的区别"><a href="#有条件转移和无条件转移的区别" class="headerlink" title="有条件转移和无条件转移的区别"></a>有条件转移和无条件转移的区别</h4><ol>
+<li>无条件转移不需要任何判断</li>
+<li>有条件转移只在-128~127之间</li>
+<li>无条件转移设有限制</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编/">汇编</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-8086的指令系统2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1069,68 +1211,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编/">汇编</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-诗2" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/06/21/诗2/" class="article-date">
-      <time datetime="2017-06-20T23:53:15.000Z" itemprop="datePublished">2017-06-21</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/06/21/诗2/">诗</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="错过"><a href="#错过" class="headerlink" title="错过"></a>错过</h2><p>曾经我认为，<br>你就是我人生中的Exception，<br>只要try my luck，<br>偶尔还能catch到你，<br>可是事实却是你是指数函数，<br>我是对数函数，<br>只有两次相交的机会。<br>人生再无异常，<br>再也不会遇见你了。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/诗句/">诗句</a></li></ul>
     </div>
 
       
