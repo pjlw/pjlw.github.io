@@ -191,7 +191,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/再别康桥/" style="font-size: 10px;">再别康桥</a> <a href="/tags/汇编/" style="font-size: 20px;">汇编</a> <a href="/tags/诗句/" style="font-size: 15px;">诗句</a>
+                        <a href="/tags/Spring/" style="font-size: 16.67px;">Spring</a> <a href="/tags/再别康桥/" style="font-size: 10px;">再别康桥</a> <a href="/tags/汇编/" style="font-size: 20px;">汇编</a> <a href="/tags/诗句/" style="font-size: 13.33px;">诗句</a>
                     </div>
                 </section>
                 
@@ -269,6 +269,519 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Spring3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/10/18/Spring3/" class="article-date">
+      <time datetime="2017-10-17T16:17:08.000Z" itemprop="datePublished">2017-10-18</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/10/18/Spring3/">Spring3</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="Spring的jdbcTemplate操作-使用在dao层的技术"><a href="#Spring的jdbcTemplate操作-使用在dao层的技术" class="headerlink" title="Spring的jdbcTemplate操作,使用在dao层的技术"></a>Spring的jdbcTemplate操作,使用在dao层的技术</h2><h4 id="Spring是一站式框架"><a href="#Spring是一站式框架" class="headerlink" title="Spring是一站式框架"></a>Spring是一站式框架</h4><h4 id="Spring对不同的持久化层都有封装"><a href="#Spring对不同的持久化层都有封装" class="headerlink" title="Spring对不同的持久化层都有封装"></a>Spring对不同的持久化层都有封装</h4><h4 id="JDBC-使用jdbcTemplate进行封装"><a href="#JDBC-使用jdbcTemplate进行封装" class="headerlink" title="JDBC:使用jdbcTemplate进行封装"></a>JDBC:使用jdbcTemplate进行封装</h4><ul>
+<li>需要注册mysql驱动<pre><code>DriverManagerDataSource dataSource = new DriverManagerDataSource();
+dataSource.setDriverClassName(&quot;com.mysql.jdbc.Driver&quot;);
+dataSource.setUrl(&quot;jdbc:mysql://127.0.0.1:3306/micro&quot;);
+dataSource.setUsername(&quot;root&quot;);
+dataSource.setPassword(&quot;root123&quot;);
+</code></pre></li>
+<li>创建模板信息<pre><code>JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+</code></pre></li>
+<li>实际操作数据</li>
+</ul>
+<ol>
+<li>增加:使用uodate(增加sql语句,增加数据的参数的具体值)</li>
+<li>修改:使用update(修改sql语句,修改数据的参数的具体值)</li>
+<li>删除:使用update(删除sql语句,删除数据的参数的具体值)</li>
+<li>查询:<blockquote>
+<ul>
+<li>查询返回一个值<pre><code>使用queryForObject(sql语句,返回类型)
+</code></pre></li>
+<li>查询返回一个对象<pre><code>需要实现RowMapper接口，复写mapRow(ResultSet resultSet, int i) throws SQLException方法
+操作与jdbc链接数据库操作相同，进行取值等操作
+</code></pre></li>
+<li>查询返回list集合<pre><code>使用query(sql语句,实现的RowMapper接口的，复写了mapRow(ResultSet resultSet, int i) throws SQLException方法的类
+操作与jdnc操作数据库形式相同
+</code></pre><h4 id="Hibernate-使用HibernateTemplate进行封装"><a href="#Hibernate-使用HibernateTemplate进行封装" class="headerlink" title="Hibernate:使用HibernateTemplate进行封装"></a>Hibernate:使用HibernateTemplate进行封装</h4><h4 id="Mybatis-使用SqlMapClientTemplate进行封装"><a href="#Mybatis-使用SqlMapClientTemplate进行封装" class="headerlink" title="Mybatis:使用SqlMapClientTemplate进行封装"></a>Mybatis:使用SqlMapClientTemplate进行封装</h4></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="Spring操作连接池-c3p0"><a href="#Spring操作连接池-c3p0" class="headerlink" title="Spring操作连接池:c3p0"></a>Spring操作连接池:c3p0</h3><ul>
+<li>使用代码操作连接池<pre><code>com.mchange.v2.c3p0.DriverManagerDataSource dataSource = new com.mchange.v2.c3p0.DriverManagerDataSource();
+dataSource.setDriverClass(&quot;com.mysql.jdbc.Driver&quot;);
+dataSource.setJdbcUrl(&quot;jdbc:mysql://127.0.0.1:3306/micro&quot;);
+dataSource.setPassword(&quot;root123&quot;);
+dataSource.setUser(&quot;root&quot;);
+</code></pre></li>
+<li>使用配置文件操作连接池：连接池的方法都是set方法，可以使用set方式注入，达到操作连接池的效果<h3 id="在DAO层使用模板"><a href="#在DAO层使用模板" class="headerlink" title="在DAO层使用模板"></a>在DAO层使用模板</h3></li>
+<li>在dao注入JdbcTemplate</li>
+<li>在jdbcTemplate中注入dataSource实现操作</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Spring2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/10/18/Spring2/" class="article-date">
+      <time datetime="2017-10-17T16:16:12.000Z" itemprop="datePublished">2017-10-18</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/10/18/Spring2/">Spring2</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="Spring的bean管理-注解"><a href="#Spring的bean管理-注解" class="headerlink" title="Spring的bean管理(注解)"></a>Spring的bean管理(注解)</h3><ul>
+<li>使用注解创建对象</li>
+<li>使用注解注入属性</li>
+<li>xml和注解方式混合</li>
+</ul>
+<h3 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h3><ul>
+<li>AOP概述</li>
+<li>AOP底层原理</li>
+<li>AOP操作相关术语</li>
+</ul>
+<h3 id="Spring的AOP操作-基于aspectj的xml方式"><a href="#Spring的AOP操作-基于aspectj的xml方式" class="headerlink" title="Spring的AOP操作(基于aspectj的xml方式)"></a>Spring的AOP操作(基于aspectj的xml方式)</h3><h3 id="log4j介绍"><a href="#log4j介绍" class="headerlink" title="log4j介绍"></a>log4j介绍</h3><h3 id="Spring整合web项目演示"><a href="#Spring整合web项目演示" class="headerlink" title="Spring整合web项目演示"></a>Spring整合web项目演示</h3><hr>
+<h3 id="Spring的bean管理"><a href="#Spring的bean管理" class="headerlink" title="Spring的bean管理"></a>Spring的bean管理</h3><h4 id="注解介绍"><a href="#注解介绍" class="headerlink" title="注解介绍"></a>注解介绍</h4><ul>
+<li>注解:代码中特殊的标记，可以使用注解完成相关的功能</li>
+<li>注解的写法:@注解名称(=属性值)</li>
+<li>使用的范围:类，方法，属性都可以使用注解<h4 id="Spring注解开发的准备"><a href="#Spring注解开发的准备" class="headerlink" title="Spring注解开发的准备"></a>Spring注解开发的准备</h4></li>
+<li>导入jar包(Spring基础jar包和AOP的jar包)</li>
+<li>创建类，创建方法</li>
+<li>创建Spring的配置文件，引入约束</li>
+</ul>
+<ol>
+<li>注解的开发需要引入新的约束<pre><code>xmlns:p=&quot;http://www.springframework.org/schema/beans/spring-context.xsd
+</code></pre></li>
+<li>在配置文件中配置一个配置即可:<pre><code>  &lt;!--到包中扫描类，方法，属性上面是否有注解--&gt;
+&lt;context:component-scan base-package=&quot;创建对象的类的包的名字&quot;&gt;&lt;/context:component&gt;
+  &lt;!--扫描属性上面的注解--&gt;
+&lt;context:annotation-config&gt;&lt;/context:annotation-config&gt;
+</code></pre><h4 id="使用注解方式创建对象"><a href="#使用注解方式创建对象" class="headerlink" title="使用注解方式创建对象"></a>使用注解方式创建对象</h4></li>
+</ol>
+<ul>
+<li>在类上面写注解，调用javabean代码与配置文件方式一样</li>
+<li>@Componet(value=”类似配置文件中的id属性”)<bean id="" class=""></bean></li>
+<li>@Controller: WEB层</li>
+<li>@Service: 业务层</li>
+<li>@Repository: 持久层</li>
+<li>目前这些注解的功能一样，用于创建对象</li>
+<li>创建对象标明是单实例还是多实例:在类上面写@Scope(value=””)<h4 id="使用注解方式注入属性"><a href="#使用注解方式注入属性" class="headerlink" title="使用注解方式注入属性"></a>使用注解方式注入属性</h4></li>
+<li>不需要写set方法,Spring自动生成</li>
+<li>@AutoWired,在另一个类中声明对象时，不需要考虑名称是否一样,对属性进行自动注入</li>
+<li>[@Component(value=”userDao”)和@Autowired　private UserDao userDaoo]一样可以成功加载</li>
+<li>@Resource(name=”指定对象的value的值”)</li>
+</ul>
+<h3 id="配置文件和注解混合使用"><a href="#配置文件和注解混合使用" class="headerlink" title="配置文件和注解混合使用"></a>配置文件和注解混合使用</h3><h4 id="创建对象操作使用配置文件方式实现"><a href="#创建对象操作使用配置文件方式实现" class="headerlink" title="创建对象操作使用配置文件方式实现"></a>创建对象操作使用配置文件方式实现</h4><h4 id="注入属性的操作使用注解的方式实现"><a href="#注入属性的操作使用注解的方式实现" class="headerlink" title="注入属性的操作使用注解的方式实现"></a>注入属性的操作使用注解的方式实现</h4><h3 id="AOP-1"><a href="#AOP-1" class="headerlink" title="AOP"></a>AOP</h3><h4 id="AOP的概念"><a href="#AOP的概念" class="headerlink" title="AOP的概念"></a>AOP的概念</h4><ul>
+<li>AOP:面向切面/方面编程，扩展功能不是通过修改源代码实现</li>
+<li>采用横向抽取机制，取代了传统纵向继承体重复代码(性能监视，事物管理，安全检查，缓存)<blockquote>
+<ul>
+<li>纵向机制:通过继承类实现功能的扩展,父类名称如果发生变换，子类中调用的方法也需要修改</li>
+<li>横向机制:使用动态代理方式实现</li>
+<li>代理对象:是一个假的对象，但是可以实现对应的方法,(JDK的动态代理是针对有接口的情况);(cglib针对没有接口的情况)</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="AOP的操作术语"><a href="#AOP的操作术语" class="headerlink" title="AOP的操作术语"></a>AOP的操作术语</h4><ul>
+<li>Joinponit(连接点):类中的那些方法可以被增强，这些方法就是连接点</li>
+<li>(!)Ponitcut(切入点):只是增强其中的部分方法，那些实际被增强的方法就是切入点</li>
+<li>(!)Advice(通知/增强):实际增强的逻辑就是增强，如一个方法需要扩展日志功能，这个日志功能就是增强</li>
+<li>(!)Aspect(切面):把增强应用到具体的方法上面，这个过程就是切面，就是把增强应用到切入点的过程<blockquote>
+<ul>
+<li>前置通知:就是在方法之前执行</li>
+<li>后置通知:在方法之后执行</li>
+<li>异常通知:在方法中出现了异常</li>
+<li>最终通知:在后置通知之后执行</li>
+<li>环绕通知:方法之前和之后执行</li>
+</ul>
+</blockquote>
+</li>
+<li>Introduction(引介):使用动态方式添加属性和方法</li>
+<li>Target(目标对象):增强方法所在的类就是目标对象</li>
+<li>Weaving(织入):将advice用到target的过程</li>
+<li>Proxy(代理):一个类被AOP织入增强后，就产生了一个结果代理类</li>
+</ul>
+<h4 id="使用AspectJ实现AOP"><a href="#使用AspectJ实现AOP" class="headerlink" title="使用AspectJ实现AOP"></a>使用AspectJ实现AOP</h4><h4 id="Spring的AOP操作"><a href="#Spring的AOP操作" class="headerlink" title="Spring的AOP操作"></a>Spring的AOP操作</h4><ul>
+<li>aspectj不是Spring的一部分，单独存在的面向切面的框架，和Spring一起进行AOP操作</li>
+<li>使用aspectj实现的两种方式</li>
+</ul>
+<ol>
+<li>基于aspectj的xml文件</li>
+<li>基于aspectj的注解方式实现<h4 id="AOP准备工作"><a href="#AOP准备工作" class="headerlink" title="AOP准备工作"></a>AOP准备工作</h4></li>
+</ol>
+<ul>
+<li>导入jar包</li>
+<li>创建核心配置文件，导入AOP的约束<h4 id="使用表达式配置切入点"><a href="#使用表达式配置切入点" class="headerlink" title="使用表达式配置切入点"></a>使用表达式配置切入点</h4><h5 id="常用表达式"><a href="#常用表达式" class="headerlink" title="常用表达式"></a>常用表达式</h5></li>
+<li>execution(&lt;访问修饰符&gt;?&lt;返回类型&gt;&lt;方法名&gt;(参数)&lt;异常&gt;)</li>
+</ul>
+<ol>
+<li>访问修饰符:public,private,protected；一般写*表示任意的修饰符</li>
+<li>写增强方法的全路径</li>
+</ol>
+<h5 id="AOP配置：首先是创建对应类的对象，使用"><a href="#AOP配置：首先是创建对应类的对象，使用" class="headerlink" title="AOP配置：首先是创建对应类的对象，使用"></a>AOP配置：首先是创建对应类的对象，使用<bean></bean></h5><pre><code>&lt;aop:config&gt;
+  &lt;!--配置切入点--&gt;
+  &lt;aop:pointcut expression=&quot;需要增强方法的全路径&quot; id=&quot;就是一个识别&quot;&gt;&lt;/aop:pointcut&gt;
+  &lt;!--配置切面--&gt;
+  &lt;aop:aspect ref=&quot;增强类对象&quot;&gt;
+    &lt;!--增强方式--&gt;
+    &lt;aop:Before method=&quot;用来增强其他类的方法&quot; pointcut=“切入点的id属性” /&gt;
+  &lt;/aop:aspect&gt;
+&lt;/aop:config&gt;
+</code></pre><h5 id="注意通知的不同处-需要传入ProceedingJoinPoint"><a href="#注意通知的不同处-需要传入ProceedingJoinPoint" class="headerlink" title="注意通知的不同处:需要传入ProceedingJoinPoint"></a>注意通知的不同处:需要传入ProceedingJoinPoint</h5><pre><code>public void circle(ProceedingJoinPoint proceedingJoinPoint) throws Throwable
+{
+      System.out.println(&quot;之前&quot;);
+      proceedingJoinPoint.proceed();
+      System.out.println(&quot;之后&quot;);
+}
+</code></pre><h4 id="log4j"><a href="#log4j" class="headerlink" title="log4j:"></a>log4j:</h4><ul>
+<li>作用：能够查看更加详细的信息</li>
+<li>使用：导入log4j.properties文件，可以设置日志级别</li>
+</ul>
+<ol>
+<li>info:基本信息</li>
+<li><p>debug:详细信息</p>
+<h3 id="给予aspectj的注解aop"><a href="#给予aspectj的注解aop" class="headerlink" title="给予aspectj的注解aop"></a>给予aspectj的注解aop</h3><h4 id="使用注解方式实现aop"><a href="#使用注解方式实现aop" class="headerlink" title="使用注解方式实现aop"></a>使用注解方式实现aop</h4><ul>
+<li>创建对象</li>
+<li>在Spring核心配置文件中开启aop操作<pre><code>&lt;aop:aspectj-autoproxy&gt;&lt;/aop:aspectj-autoproxy&gt;
+</code></pre></li>
+<li>在增强的类上使用注解实现</li>
+</ul>
+<ol>
+<li>在类上面需要添加Aspect注解</li>
+<li>在方法上面使用注解完成增强<blockquote>
+<ul>
+<li>在增强方法中类写@Aspect;在增强方法上写@Before(value=”execution(<em> cn.pjl.aop.Book.</em>(..))”)</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Spring1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/10/18/Spring1/" class="article-date">
+      <time datetime="2017-10-17T16:13:11.000Z" itemprop="datePublished">2017-10-18</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/10/18/Spring1/">Spring1</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li>是一个开源的轻量级的框架</li>
+<li>Spring核心主要有两部分<ol>
+<li>AOP:面向切面编程：扩展功能不是修改代码实现</li>
+<li>IOC:创建对象不是通过new的方式实现，而是交给SPring进行创建(底层主要是通过:XML配置文件，工厂模式，dom4j来实现相关操作)</li>
+</ol>
+</li>
+<li>是一站式框架：对于JavaEE三层结构中都提供了不同的解决技术(web层(SpringMVC),service层(IOC),dao层(jdbcTemplate))</li>
+</ul>
+<h2 id="IOC底层原理"><a href="#IOC底层原理" class="headerlink" title="IOC底层原理"></a>IOC底层原理</h2><ul>
+<li>将对象的创建交给Spring进行管理</li>
+<li>IOC操作的两个部分</li>
+</ul>
+<ol>
+<li>IOC的配置文件方式</li>
+<li>IOC的注解方式</li>
+</ol>
+<ul>
+<li>底层技术(在Spring中2,3,4都已经在框架中，只需要配置xml文件即可)</li>
+</ul>
+<ol>
+<li>xml配置文件</li>
+<li>dom4j解析xml</li>
+<li>工厂设计模式</li>
+<li>反射机制</li>
+</ol>
+<ul>
+<li>底层操作的步骤</li>
+</ul>
+<ol>
+<li>创建xml配置文件，配置需要创建的类: &lt;bean id = “” class = “类的详细地址”&gt;&lt;/bean&gt;</li>
+<li>创建工厂类:<pre><code>public class factory
+{
+  public static Service getService()
+  {
+    //1. 使用dom4j解析文件,根据id值
+    Class clazz = Class.forName(&quot;class的属性值&quot;);
+    //2. 创建类的对象
+    Service service = clazz.newInstance();
+    return service;
+  }
+}
+</code></pre></li>
+</ol>
+<ul>
+<li><p>优点:在修改代码的时候，只需要修改配置文件的参数，不需要大规模的修改源代码，能够降低类与类之间的耦合度</p>
+<h2 id="Spring入门案例"><a href="#Spring入门案例" class="headerlink" title="Spring入门案例"></a>Spring入门案例</h2><ul>
+<li>导入jar包：只需要导入四个核心jar包和日志输出的jar包</li>
+<li>创建类,在类中创建方法</li>
+</ul>
+<ol>
+<li>Spring核心配置文件的位置和名称不是固定的</li>
+<li>建议放到src下，官方建议applicationContext.xml</li>
+<li>引入schema约束</li>
+<li>配置对象的创建</li>
+</ol>
+<ul>
+<li>创建Spring配置文件,配置创建类</li>
+<li>写代码测试对象创建<h2 id="配置文件没有提示解决方案"><a href="#配置文件没有提示解决方案" class="headerlink" title="配置文件没有提示解决方案"></a>配置文件没有提示解决方案</h2></li>
+</ul>
+<ol>
+<li>Spring引入的是schema约束，将约束文件引入到eclispe中<h2 id="Spring的bean管理-xml方式"><a href="#Spring的bean管理-xml方式" class="headerlink" title="Spring的bean管理(xml方式)"></a>Spring的bean管理(xml方式)</h2><h3 id="Bean实例化方式"><a href="#Bean实例化方式" class="headerlink" title="Bean实例化方式"></a>Bean实例化方式</h3></li>
+</ol>
+<ul>
+<li>在Spring里面通过配置文件创建对象</li>
+<li>bean实例化三种方式</li>
+</ul>
+<ol>
+<li>使用类中的无参构造函数(使用较多)，如果在类中没有无参的构造函数，程序就会报错。</li>
+<li>使用静态工厂创建:在类中创建静态方法返回对象在配置文件写工厂的路径，并且写入静态工厂中的方法</li>
+<li>使用实例工厂创建:创建不是静态的方法，返回类的对象</li>
+</ol>
+<h2 id="Bean标签属性介绍"><a href="#Bean标签属性介绍" class="headerlink" title="Bean标签属性介绍"></a>Bean标签属性介绍</h2><h3 id="id"><a href="#id" class="headerlink" title="id"></a>id</h3><ul>
+<li>是一个名称，可以任意命名</li>
+<li>id的属性值不能包含一些特殊符号，直接写单词。</li>
+<li>根据id值得到配置对象</li>
+</ul>
+<h3 id="class"><a href="#class" class="headerlink" title="class"></a>class</h3><ul>
+<li>创建类的全路径</li>
+</ul>
+<h3 id="name"><a href="#name" class="headerlink" title="name"></a>name</h3><ul>
+<li>功能和id属性是一样的，但是有区别，name值中可以包含特殊符号,现在没怎么用了</li>
+</ul>
+<h3 id="scope"><a href="#scope" class="headerlink" title="scope"></a>scope</h3><ul>
+<li>singleton:单例(重点),配置文件的默认值</li>
+<li>prototype:多例(重点)</li>
+<li>request：创建对象把对象放到request域对象中</li>
+<li>session：创建对象把对象放入session域对象中</li>
+<li>globalSession：表示创建对象放入gloableSession中<h2 id="属性的注入"><a href="#属性的注入" class="headerlink" title="属性的注入"></a>属性的注入</h2><h3 id="创建对象的时候，也要向类里面的属性里面设置值"><a href="#创建对象的时候，也要向类里面的属性里面设置值" class="headerlink" title="创建对象的时候，也要向类里面的属性里面设置值"></a>创建对象的时候，也要向类里面的属性里面设置值</h3><h3 id="属性注入的方式"><a href="#属性注入的方式" class="headerlink" title="属性注入的方式"></a>属性注入的方式</h3></li>
+<li>使用set方法注入</li>
+<li>有参数的构造函数进行注入</li>
+<li>使用接口注入</li>
+<li>在Spring中只是支持前两种注入(set方法注入和操作函数注入)<h3 id="使用有参数的构造注入"><a href="#使用有参数的构造注入" class="headerlink" title="使用有参数的构造注入"></a>使用有参数的构造注入</h3></li>
+<li>对有参数的构造函数进行和无参数的构造函数相同的id class配置只是在&lt;bean&gt;&lt;/bean&gt;之间配置&lt;constructor-arg name=”参数名字” value = “参数的值”&gt;&lt;/constructor-arg&gt;<h3 id="使用set方式的注入"><a href="#使用set方式的注入" class="headerlink" title="使用set方式的注入"></a>使用set方式的注入</h3></li>
+<li>通用写法在配置文件中创建对象</li>
+<li>注入属性值&lt;property name = “属性名” value = “属性的值”&gt;&lt;/property&gt;<h3 id="注入对象类型的属性"><a href="#注入对象类型的属性" class="headerlink" title="注入对象类型的属性"></a>注入对象类型的属性</h3></li>
+<li>实过程</li>
+</ul>
+<ol>
+<li>在service中把dao作为类型属性</li>
+<li>生成dao类型的set方法</li>
+<li>在配置文件中完成注入：实现方式与set方式注入类用ref代替value;使用广泛<h3 id="名称空间的注入"><a href="#名称空间的注入" class="headerlink" title="名称空间的注入"></a>名称空间的注入</h3></li>
+</ol>
+<ul>
+<li>用于表示多个操作</li>
+<li>对配置文件的操作，</li>
+<li>操作首先是在xml文件中添加<pre><code>xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+配置&lt;bean id = &quot;&quot; class = &quot;&quot; p:属性名=“属性值”&gt;&lt;/bean&gt;
+</code></pre><h3 id="注入复杂的数据"><a href="#注入复杂的数据" class="headerlink" title="注入复杂的数据"></a>注入复杂的数据</h3><h4 id="数组-数据有多少个就加多少个value"><a href="#数组-数据有多少个就加多少个value" class="headerlink" title="数组:数据有多少个就加多少个value"></a>数组:数据有多少个就加多少个value</h4><pre><code>&lt;property name=&quot;数组名字&quot;&gt;
+  &lt;list&gt;
+    &lt;value&gt;&lt;/value&gt;
+    &lt;value&gt;&lt;/value&gt;
+    &lt;value&gt;&lt;/value&gt;
+    &lt;value&gt;&lt;/value&gt;
+    &lt;value&gt;&lt;/value&gt;
+  &lt;/list&gt;
+&lt;/property&gt;
+</code></pre><h4 id="list集合"><a href="#list集合" class="headerlink" title="list集合"></a>list集合</h4><pre><code>&lt;property name=&quot;list集合的写法&quot;&gt;
+  &lt;list&gt;
+    &lt;value&gt;&lt;/value&gt;
+    &lt;value&gt;&lt;/value&gt;
+    &lt;value&gt;&lt;/value&gt;
+    &lt;value&gt;&lt;/value&gt;
+    &lt;value&gt;&lt;/value&gt;
+  &lt;/list&gt;
+&lt;/property&gt;
+</code></pre><h4 id="map集合"><a href="#map集合" class="headerlink" title="map集合"></a>map集合</h4><pre><code>&lt;property&gt;
+  &lt;map&gt;
+    &lt;entry key = &quot;&quot; value=&quot;&quot;&gt;&lt;/entry&gt;
+    &lt;entry key = &quot;&quot; value=&quot;&quot;&gt;&lt;/entry&gt;
+    &lt;entry key = &quot;&quot; value=&quot;&quot;&gt;&lt;/entry&gt;
+  &lt;/map&gt;
+&lt;/property&gt;
+</code></pre><h4 id="property类型"><a href="#property类型" class="headerlink" title="property类型"></a>property类型</h4><pre><code>&lt;property&gt;
+  &lt;props&gt;
+    &lt;prop key = &quot;&quot;&gt;键对应的值&lt;/prop&gt;
+    &lt;prop key = &quot;&quot;&gt;键对应的值&lt;/prop&gt;
+    &lt;prop key = &quot;&quot;&gt;键对应的值&lt;/prop&gt;
+    &lt;prop key = &quot;&quot;&gt;键对应的值&lt;/prop&gt;
+  &lt;/props&gt;
+&lt;/property&gt;
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h3 id="IOC与DI区别"><a href="#IOC与DI区别" class="headerlink" title="IOC与DI区别"></a>IOC与DI区别</h3><ul>
+<li>IOC:控制反转，创建对象</li>
+<li>DI:依赖注入，向类中的属性设置值<h4 id="二者关系"><a href="#二者关系" class="headerlink" title="二者关系"></a>二者关系</h4></li>
+<li>依赖注入不能单独存在，需要借助IOC完成操作<h3 id="Spring整合web项目"><a href="#Spring整合web项目" class="headerlink" title="Spring整合web项目"></a>Spring整合web项目</h3></li>
+<li>加载spring配置文件，更具创建对象</li>
+<li>new对象，功能可以实现但是效率很低<h4 id="把加载配置文件和创建对象过程，在服务器启动时候完成"><a href="#把加载配置文件和创建对象过程，在服务器启动时候完成" class="headerlink" title="把加载配置文件和创建对象过程，在服务器启动时候完成"></a>把加载配置文件和创建对象过程，在服务器启动时候完成</h4><h5 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h5></li>
+<li>ServletContext对象</li>
+<li>用到监听器</li>
+<li>具体使用</li>
+</ul>
+<ol>
+<li>在服务器启动时，为每个项目创建了一个ServletContext对象</li>
+<li>在ServletContext对象创建时，使用监听器可以具体到ServletContext对象在什么时候创建</li>
+<li>使用监听器监听到ServletContet对象创建的时候</li>
+<li>加载Spring配置文件，把配置文件配置对象创建</li>
+<li>把创建出来的对象放到ServletContext域对象中(setAttribute)</li>
+<li>获取对象时，到ServletContext域得到(getAttribute)</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-诗3" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -989,216 +1502,6 @@
 <li>指令周期:执行一条指令所需要的时间(取操作数+执行指令+传送结果)</li>
 <li>总线周期:CPU从存储器或输入输出端口存/取一个字节所需时间</li>
 <li>T状态:每个总线周期包含四个T状态是最小单位(时钟频率5mHz一个T为20ns)</li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编/">汇编</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-汇编基础2" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/07/04/汇编基础2/" class="article-date">
-      <time datetime="2017-07-04T07:36:37.000Z" itemprop="datePublished">2017-07-04</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/07/04/汇编基础2/">基础知识</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="寄存器的分类"><a href="#寄存器的分类" class="headerlink" title="寄存器的分类:"></a>寄存器的分类:</h2><ol>
-<li>通用寄存器:<br>类型   | 表示 |<br>——-|——|<br>累加器 | AX  |<br>计数器 | BX  |<br>基地址寄存器 | CX  |<br>数据寄存器| DX |<br>堆栈指针寄存器| SP |<br>基地址寄存器| BP |<br>源变址寄存器| SI |<br>目标变址寄存器|DI|<br>指令指针寄存器|IP|<br>标志寄存器| FLAG |<br>代码段寄存器| CS |<br>数据段寄存器| DS |<br>堆栈段寄存器| SS |<br>附加段寄存器| ES |</li>
-<li>标志寄存器:<br>类型   | 表示 | 作用<br>——-|——|—-<br>进位标志 | CF  | CF=1进位,CF=0无进位<br>溢出标志 | OF  | OF=1溢出,OF=0无溢出<br>符号标志 | SF  |最高位为1，SF=1,否则SF=0<br>零标志位 | ZF  |结果为0,ZF=1,结果为1,ZF=0<br>奇偶标志 | PF  |1的个数为偶PF=1,否则PF=0<br>辅助进位标志 | AF |<br>方向标志 | DF  |DF=1串操作自减,DF=0串操作自增<br>中断允许 | IF  |IF=1允许,IF=0不允许<br>追踪标志 | TF  |TF=1允许进入单步调试</li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编/">汇编</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-基础必知" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/07/02/基础必知/" class="article-date">
-      <time datetime="2017-07-02T02:44:04.000Z" itemprop="datePublished">2017-07-02</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/07/02/基础必知/">进制转化</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="进制的转化"><a href="#进制的转化" class="headerlink" title="进制的转化"></a>进制的转化</h2><ol>
-<li>二进制转换为十进制：二进制数第０位的权值是２的０次方，第一位的权位是２的１次方将其转化为十进制就是将各个位数的２的n次方计算之后相加即可，如:0110 0100计算成十进制就是0+0+4+0+0+32+64+0=100</li>
-<li>八进制转化为二进制：八进制就是逢８进１所以只能用０到７的数字表示与２进制相似，八进制第０位的权值是８的０次方<em>０位的数，第１位是８的１次方将其转化为十进制就是将各个位数的８的n次方计算之后相乘相加即可，如:1507=7</em>1+0<em>8+5</em>64+1*512=839．</li>
-<li>十六进制转化为十进制：小于等于９的时候用0~9,大于９小于等于１５时间用a(A),b(B),c(C),d(D),e(E),f(F)表示与八进制的做法类似，如：2AF5=5<em>16^0+F</em>16^1+A<em>16^2+2</em>16^3=5+240+2560+8192=10997。</li>
-<li>十进制转化为二进制,十六进制,八进制：用对应的数字除以2/16/8，用它的余数倒置来表示对应的进制数字,如:100对２求余直到结果为０:0110 0100；100对8求余直到结果为０:144；100对２求余直到结果为０：64；</li>
-<li>八进制，十六进转化为二进制：将八进制的每一位数字转化为３位，将十六进制的数字每一位转化为４位，均用０和１表示就可以将二进制转化如八进制100:0001 000 000;十六进制100:0001 0000 0000</li>
-<li>将八进制转化为十六进制，将十六进制转换为八进制:首先将十六进制/八进制转化为对应的二进制，如果是八进制转换为十六进制，就需要从右到左，以四位为一组进行计算,如：八进制的100的二进制是:001 000 000,变换之后就是:00100 0000，如果是十六进制转化为八进制，就需要从右到左，以三位为一组进行计算，如：十六进制的100的二进制是:0001 0000 0000,变换之后就是:100 000 000。</li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编/">汇编</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-编译环境" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/07/02/编译环境/" class="article-date">
-      <time datetime="2017-07-02T02:20:15.000Z" itemprop="datePublished">2017-07-02</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/07/02/编译环境/">汇编</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="编译环境"><a href="#编译环境" class="headerlink" title="编译环境"></a>编译环境</h2><h3 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h3><ol>
-<li>下载DOSBOX<ol>
-<li>工具介绍：DOSBox 是一个 DOS 模拟程序，由于它采用的是 SDL 库，所以可以很方便的移植到其他的平台。目前，DOSBox 已经支持在 Windows、Linux、Mac OS X、BeOS 、palmOS、Android 、webOS、os/2等系统中运行。不少DOS下的游戏都可以直接在该平台上运行。</li>
-<li>工具官网：<a href="http://www.dosbox.com/" target="_blank" rel="external">http://www.dosbox.com/</a></li>
-</ol>
-</li>
-<li>下载MASM32<ol>
-<li>工具介绍：MASM32是国外的MASM爱好者Steve Hutchesson自行整理和编写的一个软件包，目前最高版本为11r版。MASM32并非指Microsoft的MASM宏汇编器，而是包含了不同版本工具组建的汇编开发工具包。它的汇编编译器是MASM6.0以上版本中的Ml.exe，资源编译器是Microsoft Visual Studio中的Rc.exe，32位链接器是Microsoft Visual Studio中的Link.exe，同时包含有其他的一些如Lib.exe和DumpPe.exe等工具。</li>
-<li>工具官网: <a href="http://www.masm32.com/" target="_blank" rel="external">http://www.masm32.com/</a></li>
-</ol>
-</li>
-</ol>
-<h3 id="安装与配置"><a href="#安装与配置" class="headerlink" title="安装与配置"></a>安装与配置</h3><ol>
-<li>配置DOSBOX: 安装软件自然不需要再说，配置才是最重要的。创建一个用于保存汇编工具（如MASM、Link、DEBUG等工具）和汇编文件（*.asm）的目录，如：D:\DEBUG。打开DOSBOX的安装根目录（默认安装路径：C:\Program Files\DOSBox-0.74；若是64位的系统，则默认安装路径：C:\Program Files (x86)\DOSBox-0.74），双击文件DOSBox 0.74 Options.bat，运行该批处理文件后系统会用文本文档Notepad打开配置文件dosbox-0.74.conf。将光标定位到dosbox-0.74.conf文件的[autoexec]节点（一般在该文件末尾），在文件中添加以下内容：MOUNT C D:\DEBUG// 将目录D:\DEBUG挂载为DOSBOX下的C:set PATH=$PATH$;D:\DEBUG// 将D:\DEBUG写入环境变量PATH中;接下来安装MASM32按照默认配置安装就行了</li>
 </ol>
 
       

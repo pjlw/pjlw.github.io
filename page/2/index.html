@@ -191,7 +191,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/再别康桥/" style="font-size: 10px;">再别康桥</a> <a href="/tags/汇编/" style="font-size: 20px;">汇编</a> <a href="/tags/诗句/" style="font-size: 15px;">诗句</a>
+                        <a href="/tags/Spring/" style="font-size: 16.67px;">Spring</a> <a href="/tags/再别康桥/" style="font-size: 10px;">再别康桥</a> <a href="/tags/汇编/" style="font-size: 20px;">汇编</a> <a href="/tags/诗句/" style="font-size: 13.33px;">诗句</a>
                     </div>
                 </section>
                 
@@ -269,6 +269,216 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-汇编基础2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/07/04/汇编基础2/" class="article-date">
+      <time datetime="2017-07-04T07:36:37.000Z" itemprop="datePublished">2017-07-04</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/07/04/汇编基础2/">基础知识</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="寄存器的分类"><a href="#寄存器的分类" class="headerlink" title="寄存器的分类:"></a>寄存器的分类:</h2><ol>
+<li>通用寄存器:<br>类型   | 表示 |<br>——-|——|<br>累加器 | AX  |<br>计数器 | BX  |<br>基地址寄存器 | CX  |<br>数据寄存器| DX |<br>堆栈指针寄存器| SP |<br>基地址寄存器| BP |<br>源变址寄存器| SI |<br>目标变址寄存器|DI|<br>指令指针寄存器|IP|<br>标志寄存器| FLAG |<br>代码段寄存器| CS |<br>数据段寄存器| DS |<br>堆栈段寄存器| SS |<br>附加段寄存器| ES |</li>
+<li>标志寄存器:<br>类型   | 表示 | 作用<br>——-|——|—-<br>进位标志 | CF  | CF=1进位,CF=0无进位<br>溢出标志 | OF  | OF=1溢出,OF=0无溢出<br>符号标志 | SF  |最高位为1，SF=1,否则SF=0<br>零标志位 | ZF  |结果为0,ZF=1,结果为1,ZF=0<br>奇偶标志 | PF  |1的个数为偶PF=1,否则PF=0<br>辅助进位标志 | AF |<br>方向标志 | DF  |DF=1串操作自减,DF=0串操作自增<br>中断允许 | IF  |IF=1允许,IF=0不允许<br>追踪标志 | TF  |TF=1允许进入单步调试</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编/">汇编</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-基础必知" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/07/02/基础必知/" class="article-date">
+      <time datetime="2017-07-02T02:44:04.000Z" itemprop="datePublished">2017-07-02</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/07/02/基础必知/">进制转化</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="进制的转化"><a href="#进制的转化" class="headerlink" title="进制的转化"></a>进制的转化</h2><ol>
+<li>二进制转换为十进制：二进制数第０位的权值是２的０次方，第一位的权位是２的１次方将其转化为十进制就是将各个位数的２的n次方计算之后相加即可，如:0110 0100计算成十进制就是0+0+4+0+0+32+64+0=100</li>
+<li>八进制转化为二进制：八进制就是逢８进１所以只能用０到７的数字表示与２进制相似，八进制第０位的权值是８的０次方<em>０位的数，第１位是８的１次方将其转化为十进制就是将各个位数的８的n次方计算之后相乘相加即可，如:1507=7</em>1+0<em>8+5</em>64+1*512=839．</li>
+<li>十六进制转化为十进制：小于等于９的时候用0~9,大于９小于等于１５时间用a(A),b(B),c(C),d(D),e(E),f(F)表示与八进制的做法类似，如：2AF5=5<em>16^0+F</em>16^1+A<em>16^2+2</em>16^3=5+240+2560+8192=10997。</li>
+<li>十进制转化为二进制,十六进制,八进制：用对应的数字除以2/16/8，用它的余数倒置来表示对应的进制数字,如:100对２求余直到结果为０:0110 0100；100对8求余直到结果为０:144；100对２求余直到结果为０：64；</li>
+<li>八进制，十六进转化为二进制：将八进制的每一位数字转化为３位，将十六进制的数字每一位转化为４位，均用０和１表示就可以将二进制转化如八进制100:0001 000 000;十六进制100:0001 0000 0000</li>
+<li>将八进制转化为十六进制，将十六进制转换为八进制:首先将十六进制/八进制转化为对应的二进制，如果是八进制转换为十六进制，就需要从右到左，以四位为一组进行计算,如：八进制的100的二进制是:001 000 000,变换之后就是:00100 0000，如果是十六进制转化为八进制，就需要从右到左，以三位为一组进行计算，如：十六进制的100的二进制是:0001 0000 0000,变换之后就是:100 000 000。</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编/">汇编</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-编译环境" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/07/02/编译环境/" class="article-date">
+      <time datetime="2017-07-02T02:20:15.000Z" itemprop="datePublished">2017-07-02</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/07/02/编译环境/">汇编</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="编译环境"><a href="#编译环境" class="headerlink" title="编译环境"></a>编译环境</h2><h3 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h3><ol>
+<li>下载DOSBOX<ol>
+<li>工具介绍：DOSBox 是一个 DOS 模拟程序，由于它采用的是 SDL 库，所以可以很方便的移植到其他的平台。目前，DOSBox 已经支持在 Windows、Linux、Mac OS X、BeOS 、palmOS、Android 、webOS、os/2等系统中运行。不少DOS下的游戏都可以直接在该平台上运行。</li>
+<li>工具官网：<a href="http://www.dosbox.com/" target="_blank" rel="external">http://www.dosbox.com/</a></li>
+</ol>
+</li>
+<li>下载MASM32<ol>
+<li>工具介绍：MASM32是国外的MASM爱好者Steve Hutchesson自行整理和编写的一个软件包，目前最高版本为11r版。MASM32并非指Microsoft的MASM宏汇编器，而是包含了不同版本工具组建的汇编开发工具包。它的汇编编译器是MASM6.0以上版本中的Ml.exe，资源编译器是Microsoft Visual Studio中的Rc.exe，32位链接器是Microsoft Visual Studio中的Link.exe，同时包含有其他的一些如Lib.exe和DumpPe.exe等工具。</li>
+<li>工具官网: <a href="http://www.masm32.com/" target="_blank" rel="external">http://www.masm32.com/</a></li>
+</ol>
+</li>
+</ol>
+<h3 id="安装与配置"><a href="#安装与配置" class="headerlink" title="安装与配置"></a>安装与配置</h3><ol>
+<li>配置DOSBOX: 安装软件自然不需要再说，配置才是最重要的。创建一个用于保存汇编工具（如MASM、Link、DEBUG等工具）和汇编文件（*.asm）的目录，如：D:\DEBUG。打开DOSBOX的安装根目录（默认安装路径：C:\Program Files\DOSBox-0.74；若是64位的系统，则默认安装路径：C:\Program Files (x86)\DOSBox-0.74），双击文件DOSBox 0.74 Options.bat，运行该批处理文件后系统会用文本文档Notepad打开配置文件dosbox-0.74.conf。将光标定位到dosbox-0.74.conf文件的[autoexec]节点（一般在该文件末尾），在文件中添加以下内容：MOUNT C D:\DEBUG// 将目录D:\DEBUG挂载为DOSBOX下的C:set PATH=$PATH$;D:\DEBUG// 将D:\DEBUG写入环境变量PATH中;接下来安装MASM32按照默认配置安装就行了</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编/">汇编</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-汇编基础" class="article article-type-post" itemscope itemprop="blogPost">
   

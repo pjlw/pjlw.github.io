@@ -7,18 +7,19 @@
   
   
   
-  <title>8086指令系统和寻址方式 | Liang`s Blog</title>
+  <title>Spring1 | Liang`s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="寻址方式 立即数寻址: MOV AX,34H;不能给段寄存器和标志寄存器赋立即数(MOV DS,1250是错误的) 寄存器寻址: 可以是AX,BX,CX,DX,SI,DI,SP,BP;寄存器的位数必须一致(MOV CL,BX是错误的) 内存储器寻址: 取得操作的偏移地址也称为有效地址EA 基本知识 有效地址的组成:位移量+基地址+变址　　　2. 不允许使用跨越前缀的情况:串处理的目的串必须用ES段">
+  <meta name="description" content="简介 是一个开源的轻量级的框架 Spring核心主要有两部分 AOP:面向切面编程：扩展功能不是修改代码实现 IOC:创建对象不是通过new的方式实现，而是交给SPring进行创建(底层主要是通过:XML配置文件，工厂模式，dom4j来实现相关操作)   是一站式框架：对于JavaEE三层结构中都提供了不同的解决技术(web层(SpringMVC),service层(IOC),dao层(jdbcT">
+<meta name="keywords" content="Spring">
 <meta property="og:type" content="article">
-<meta property="og:title" content="8086指令系统和寻址方式">
-<meta property="og:url" content="http://yoursite.com/2017/07/08/基础知识3/index.html">
+<meta property="og:title" content="Spring1">
+<meta property="og:url" content="http://yoursite.com/2017/10/18/Spring1/index.html">
 <meta property="og:site_name" content="Liang`s Blog">
-<meta property="og:description" content="寻址方式 立即数寻址: MOV AX,34H;不能给段寄存器和标志寄存器赋立即数(MOV DS,1250是错误的) 寄存器寻址: 可以是AX,BX,CX,DX,SI,DI,SP,BP;寄存器的位数必须一致(MOV CL,BX是错误的) 内存储器寻址: 取得操作的偏移地址也称为有效地址EA 基本知识 有效地址的组成:位移量+基地址+变址　　　2. 不允许使用跨越前缀的情况:串处理的目的串必须用ES段">
-<meta property="og:updated_time" content="2017-07-08T08:16:48.095Z">
+<meta property="og:description" content="简介 是一个开源的轻量级的框架 Spring核心主要有两部分 AOP:面向切面编程：扩展功能不是修改代码实现 IOC:创建对象不是通过new的方式实现，而是交给SPring进行创建(底层主要是通过:XML配置文件，工厂模式，dom4j来实现相关操作)   是一站式框架：对于JavaEE三层结构中都提供了不同的解决技术(web层(SpringMVC),service层(IOC),dao层(jdbcT">
+<meta property="og:updated_time" content="2017-10-17T16:14:03.429Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="8086指令系统和寻址方式">
-<meta name="twitter:description" content="寻址方式 立即数寻址: MOV AX,34H;不能给段寄存器和标志寄存器赋立即数(MOV DS,1250是错误的) 寄存器寻址: 可以是AX,BX,CX,DX,SI,DI,SP,BP;寄存器的位数必须一致(MOV CL,BX是错误的) 内存储器寻址: 取得操作的偏移地址也称为有效地址EA 基本知识 有效地址的组成:位移量+基地址+变址　　　2. 不允许使用跨越前缀的情况:串处理的目的串必须用ES段">
+<meta name="twitter:title" content="Spring1">
+<meta name="twitter:description" content="简介 是一个开源的轻量级的框架 Spring核心主要有两部分 AOP:面向切面编程：扩展功能不是修改代码实现 IOC:创建对象不是通过new的方式实现，而是交给SPring进行创建(底层主要是通过:XML配置文件，工厂模式，dom4j来实现相关操作)   是一站式框架：对于JavaEE三层结构中都提供了不同的解决技术(web层(SpringMVC),service层(IOC),dao层(jdbcT">
   
     <link rel="alternative" href="/atom.xml" title="Liang`s Blog" type="application/atom+xml">
   
@@ -269,11 +270,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-基础知识3" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Spring1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2017/07/08/基础知识3/" class="article-date">
-      <time datetime="2017-07-08T06:23:22.000Z" itemprop="datePublished">2017-07-08</time>
+      <a  href="/2017/10/18/Spring1/" class="article-date">
+      <time datetime="2017-10-17T16:13:11.000Z" itemprop="datePublished">2017-10-18</time>
 </a>
 
     </div>
@@ -287,7 +288,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      8086指令系统和寻址方式
+      Spring1
     </h1>
   
 
@@ -298,6 +299,10 @@
         
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -305,41 +310,168 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h2><ol>
-<li>立即数寻址: MOV AX,34H;不能给段寄存器和标志寄存器赋立即数(MOV DS,1250是错误的)</li>
-<li>寄存器寻址: 可以是AX,BX,CX,DX,SI,DI,SP,BP;寄存器的位数必须一致(MOV CL,BX是错误的)</li>
-<li>内存储器寻址: 取得操作的偏移地址也称为有效地址EA<ol>
-<li>基本知识<ol>
-<li>有效地址的组成:位移量+基地址+变址<br>　　　2. 不允许使用跨越前缀的情况:串处理的目的串必须用ES段;PUSH指令的目的和POP指令的源必须使用SS段;指令必须放在CS段</li>
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li>是一个开源的轻量级的框架</li>
+<li>Spring核心主要有两部分<ol>
+<li>AOP:面向切面编程：扩展功能不是修改代码实现</li>
+<li>IOC:创建对象不是通过new的方式实现，而是交给SPring进行创建(底层主要是通过:XML配置文件，工厂模式，dom4j来实现相关操作)</li>
 </ol>
 </li>
-<li>直接寻址方式:<ol>
-<li>MOV AX,[2000H]修改AX地址;</li>
-<li>如果在附加段中，应指定段前缀:MOV AX,ES:[values]</li>
+<li>是一站式框架：对于JavaEE三层结构中都提供了不同的解决技术(web层(SpringMVC),service层(IOC),dao层(jdbcTemplate))</li>
+</ul>
+<h2 id="IOC底层原理"><a href="#IOC底层原理" class="headerlink" title="IOC底层原理"></a>IOC底层原理</h2><ul>
+<li>将对象的创建交给Spring进行管理</li>
+<li>IOC操作的两个部分</li>
+</ul>
+<ol>
+<li>IOC的配置文件方式</li>
+<li>IOC的注解方式</li>
 </ol>
-</li>
-<li>寄存器间接寻址:<ol>
-<li>MOV AL,[BX];</li>
-<li>操作数只包含BX/BP,SI/DI使用BP省略段SS,其它则省略DS段；</li>
-<li>跨段使用:MOV AX,ES:[BX]</li>
+<ul>
+<li>底层技术(在Spring中2,3,4都已经在框架中，只需要配置xml文件即可)</li>
+</ul>
+<ol>
+<li>xml配置文件</li>
+<li>dom4j解析xml</li>
+<li>工厂设计模式</li>
+<li>反射机制</li>
 </ol>
-</li>
-<li>寄存器相对寻址:<ol>
-<li>MOV AX,COUNT[BX];若(DS)=3000H,(BX)=1000H,CONUT=1000H,物理地址是:32000H</li>
-<li>操作数仅有基址/变址指定位移之和<br>　　　3. 使用段跨越:MOV AX,ES:COUNT[BX]</li>
+<ul>
+<li>底层操作的步骤</li>
+</ul>
+<ol>
+<li>创建xml配置文件，配置需要创建的类: &lt;bean id = “” class = “类的详细地址”&gt;&lt;/bean&gt;</li>
+<li>创建工厂类:<pre><code>public class factory
+{
+  public static Service getService()
+  {
+    //1. 使用dom4j解析文件,根据id值
+    Class clazz = Class.forName(&quot;class的属性值&quot;);
+    //2. 创建类的对象
+    Service service = clazz.newInstance();
+    return service;
+  }
+}
+</code></pre></li>
 </ol>
-</li>
-<li>基址变址寻址:<ol>
-<li>操作数的有效地址是基址和变址的内容之和<br>　　　2. MOV AX,[BX][DI]</li>
-<li>使用段跨越:MOV AX,ES:]BX][DI]</li>
+<ul>
+<li><p>优点:在修改代码的时候，只需要修改配置文件的参数，不需要大规模的修改源代码，能够降低类与类之间的耦合度</p>
+<h2 id="Spring入门案例"><a href="#Spring入门案例" class="headerlink" title="Spring入门案例"></a>Spring入门案例</h2><ul>
+<li>导入jar包：只需要导入四个核心jar包和日志输出的jar包</li>
+<li>创建类,在类中创建方法</li>
+</ul>
+<ol>
+<li>Spring核心配置文件的位置和名称不是固定的</li>
+<li>建议放到src下，官方建议applicationContext.xml</li>
+<li>引入schema约束</li>
+<li>配置对象的创建</li>
 </ol>
-</li>
-<li>相对基址变址寻址:<ol>
-<li>操作数的有效地址是基址变址和指定的位移量之和<br>　　　2. MOV AX,MASK[BX][DI]</li>
+<ul>
+<li>创建Spring配置文件,配置创建类</li>
+<li>写代码测试对象创建<h2 id="配置文件没有提示解决方案"><a href="#配置文件没有提示解决方案" class="headerlink" title="配置文件没有提示解决方案"></a>配置文件没有提示解决方案</h2></li>
+</ul>
+<ol>
+<li>Spring引入的是schema约束，将约束文件引入到eclispe中<h2 id="Spring的bean管理-xml方式"><a href="#Spring的bean管理-xml方式" class="headerlink" title="Spring的bean管理(xml方式)"></a>Spring的bean管理(xml方式)</h2><h3 id="Bean实例化方式"><a href="#Bean实例化方式" class="headerlink" title="Bean实例化方式"></a>Bean实例化方式</h3></li>
 </ol>
-</li>
+<ul>
+<li>在Spring里面通过配置文件创建对象</li>
+<li>bean实例化三种方式</li>
+</ul>
+<ol>
+<li>使用类中的无参构造函数(使用较多)，如果在类中没有无参的构造函数，程序就会报错。</li>
+<li>使用静态工厂创建:在类中创建静态方法返回对象在配置文件写工厂的路径，并且写入静态工厂中的方法</li>
+<li>使用实例工厂创建:创建不是静态的方法，返回类的对象</li>
 </ol>
+<h2 id="Bean标签属性介绍"><a href="#Bean标签属性介绍" class="headerlink" title="Bean标签属性介绍"></a>Bean标签属性介绍</h2><h3 id="id"><a href="#id" class="headerlink" title="id"></a>id</h3><ul>
+<li>是一个名称，可以任意命名</li>
+<li>id的属性值不能包含一些特殊符号，直接写单词。</li>
+<li>根据id值得到配置对象</li>
+</ul>
+<h3 id="class"><a href="#class" class="headerlink" title="class"></a>class</h3><ul>
+<li>创建类的全路径</li>
+</ul>
+<h3 id="name"><a href="#name" class="headerlink" title="name"></a>name</h3><ul>
+<li>功能和id属性是一样的，但是有区别，name值中可以包含特殊符号,现在没怎么用了</li>
+</ul>
+<h3 id="scope"><a href="#scope" class="headerlink" title="scope"></a>scope</h3><ul>
+<li>singleton:单例(重点),配置文件的默认值</li>
+<li>prototype:多例(重点)</li>
+<li>request：创建对象把对象放到request域对象中</li>
+<li>session：创建对象把对象放入session域对象中</li>
+<li>globalSession：表示创建对象放入gloableSession中<h2 id="属性的注入"><a href="#属性的注入" class="headerlink" title="属性的注入"></a>属性的注入</h2><h3 id="创建对象的时候，也要向类里面的属性里面设置值"><a href="#创建对象的时候，也要向类里面的属性里面设置值" class="headerlink" title="创建对象的时候，也要向类里面的属性里面设置值"></a>创建对象的时候，也要向类里面的属性里面设置值</h3><h3 id="属性注入的方式"><a href="#属性注入的方式" class="headerlink" title="属性注入的方式"></a>属性注入的方式</h3></li>
+<li>使用set方法注入</li>
+<li>有参数的构造函数进行注入</li>
+<li>使用接口注入</li>
+<li>在Spring中只是支持前两种注入(set方法注入和操作函数注入)<h3 id="使用有参数的构造注入"><a href="#使用有参数的构造注入" class="headerlink" title="使用有参数的构造注入"></a>使用有参数的构造注入</h3></li>
+<li>对有参数的构造函数进行和无参数的构造函数相同的id class配置只是在&lt;bean&gt;&lt;/bean&gt;之间配置&lt;constructor-arg name=”参数名字” value = “参数的值”&gt;&lt;/constructor-arg&gt;<h3 id="使用set方式的注入"><a href="#使用set方式的注入" class="headerlink" title="使用set方式的注入"></a>使用set方式的注入</h3></li>
+<li>通用写法在配置文件中创建对象</li>
+<li>注入属性值&lt;property name = “属性名” value = “属性的值”&gt;&lt;/property&gt;<h3 id="注入对象类型的属性"><a href="#注入对象类型的属性" class="headerlink" title="注入对象类型的属性"></a>注入对象类型的属性</h3></li>
+<li>实过程</li>
+</ul>
+<ol>
+<li>在service中把dao作为类型属性</li>
+<li>生成dao类型的set方法</li>
+<li>在配置文件中完成注入：实现方式与set方式注入类用ref代替value;使用广泛<h3 id="名称空间的注入"><a href="#名称空间的注入" class="headerlink" title="名称空间的注入"></a>名称空间的注入</h3></li>
+</ol>
+<ul>
+<li>用于表示多个操作</li>
+<li>对配置文件的操作，</li>
+<li>操作首先是在xml文件中添加<pre><code>xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+配置&lt;bean id = &quot;&quot; class = &quot;&quot; p:属性名=“属性值”&gt;&lt;/bean&gt;
+</code></pre><h3 id="注入复杂的数据"><a href="#注入复杂的数据" class="headerlink" title="注入复杂的数据"></a>注入复杂的数据</h3><h4 id="数组-数据有多少个就加多少个value"><a href="#数组-数据有多少个就加多少个value" class="headerlink" title="数组:数据有多少个就加多少个value"></a>数组:数据有多少个就加多少个value</h4><pre><code>&lt;property name=&quot;数组名字&quot;&gt;
+  &lt;list&gt;
+    &lt;value&gt;&lt;/value&gt;
+    &lt;value&gt;&lt;/value&gt;
+    &lt;value&gt;&lt;/value&gt;
+    &lt;value&gt;&lt;/value&gt;
+    &lt;value&gt;&lt;/value&gt;
+  &lt;/list&gt;
+&lt;/property&gt;
+</code></pre><h4 id="list集合"><a href="#list集合" class="headerlink" title="list集合"></a>list集合</h4><pre><code>&lt;property name=&quot;list集合的写法&quot;&gt;
+  &lt;list&gt;
+    &lt;value&gt;&lt;/value&gt;
+    &lt;value&gt;&lt;/value&gt;
+    &lt;value&gt;&lt;/value&gt;
+    &lt;value&gt;&lt;/value&gt;
+    &lt;value&gt;&lt;/value&gt;
+  &lt;/list&gt;
+&lt;/property&gt;
+</code></pre><h4 id="map集合"><a href="#map集合" class="headerlink" title="map集合"></a>map集合</h4><pre><code>&lt;property&gt;
+  &lt;map&gt;
+    &lt;entry key = &quot;&quot; value=&quot;&quot;&gt;&lt;/entry&gt;
+    &lt;entry key = &quot;&quot; value=&quot;&quot;&gt;&lt;/entry&gt;
+    &lt;entry key = &quot;&quot; value=&quot;&quot;&gt;&lt;/entry&gt;
+  &lt;/map&gt;
+&lt;/property&gt;
+</code></pre><h4 id="property类型"><a href="#property类型" class="headerlink" title="property类型"></a>property类型</h4><pre><code>&lt;property&gt;
+  &lt;props&gt;
+    &lt;prop key = &quot;&quot;&gt;键对应的值&lt;/prop&gt;
+    &lt;prop key = &quot;&quot;&gt;键对应的值&lt;/prop&gt;
+    &lt;prop key = &quot;&quot;&gt;键对应的值&lt;/prop&gt;
+    &lt;prop key = &quot;&quot;&gt;键对应的值&lt;/prop&gt;
+  &lt;/props&gt;
+&lt;/property&gt;
+</code></pre></li>
+</ul>
 </li>
+</ul>
+<h3 id="IOC与DI区别"><a href="#IOC与DI区别" class="headerlink" title="IOC与DI区别"></a>IOC与DI区别</h3><ul>
+<li>IOC:控制反转，创建对象</li>
+<li>DI:依赖注入，向类中的属性设置值<h4 id="二者关系"><a href="#二者关系" class="headerlink" title="二者关系"></a>二者关系</h4></li>
+<li>依赖注入不能单独存在，需要借助IOC完成操作<h3 id="Spring整合web项目"><a href="#Spring整合web项目" class="headerlink" title="Spring整合web项目"></a>Spring整合web项目</h3></li>
+<li>加载spring配置文件，更具创建对象</li>
+<li>new对象，功能可以实现但是效率很低<h4 id="把加载配置文件和创建对象过程，在服务器启动时候完成"><a href="#把加载配置文件和创建对象过程，在服务器启动时候完成" class="headerlink" title="把加载配置文件和创建对象过程，在服务器启动时候完成"></a>把加载配置文件和创建对象过程，在服务器启动时候完成</h4><h5 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h5></li>
+<li>ServletContext对象</li>
+<li>用到监听器</li>
+<li>具体使用</li>
+</ul>
+<ol>
+<li>在服务器启动时，为每个项目创建了一个ServletContext对象</li>
+<li>在ServletContext对象创建时，使用监听器可以具体到ServletContext对象在什么时候创建</li>
+<li>使用监听器监听到ServletContet对象创建的时候</li>
+<li>加载Spring配置文件，把配置文件配置对象创建</li>
+<li>把创建出来的对象放到ServletContext域对象中(setAttribute)</li>
+<li>获取对象时，到ServletContext域得到(getAttribute)</li>
 </ol>
 
       
@@ -349,13 +481,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2017/07/08/基础知识3/">8086指令系统和寻址方式</a></p>
+        <p><span>本文标题:</span><a  href="/2017/10/18/Spring1/">Spring1</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 Petter 的个人博客">Petter</a></p>
-        <p><span>发布时间:</span>2017年07月08日 - 14时23分</p>
-        <p><span>最后更新:</span>2017年07月08日 - 16时16分</p>
+        <p><span>发布时间:</span>2017年10月18日 - 00时13分</p>
+        <p><span>最后更新:</span>2017年10月18日 - 00时14分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/07/08/基础知识3/" title="8086指令系统和寻址方式">http://yoursite.com/2017/07/08/基础知识3/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/07/08/基础知识3/　　作者: Petter" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/10/18/Spring1/" title="Spring1">http://yoursite.com/2017/10/18/Spring1/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/10/18/Spring1/　　作者: Petter" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -366,18 +498,18 @@
 
 <nav id="article-nav">
   
-    <a  href="/2017/07/11/汇编基础3/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a  href="/2017/10/18/Spring2/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          8086指令系统和寻址方式
+          Spring2
         
       </div>
     </a>
   
   
-    <a  href="/2017/07/07/基础知识/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">基础知识</div>
+    <a  href="/2017/10/11/诗3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">诗3</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -389,7 +521,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#寻址方式"><span class="toc-number">1.</span> <span class="toc-text">寻址方式</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IOC底层原理"><span class="toc-number">2.</span> <span class="toc-text">IOC底层原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring入门案例"><span class="toc-number">3.</span> <span class="toc-text">Spring入门案例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置文件没有提示解决方案"><span class="toc-number">4.</span> <span class="toc-text">配置文件没有提示解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring的bean管理-xml方式"><span class="toc-number">5.</span> <span class="toc-text">Spring的bean管理(xml方式)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bean实例化方式"><span class="toc-number">5.1.</span> <span class="toc-text">Bean实例化方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bean标签属性介绍"><span class="toc-number">6.</span> <span class="toc-text">Bean标签属性介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#id"><span class="toc-number">6.1.</span> <span class="toc-text">id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#class"><span class="toc-number">6.2.</span> <span class="toc-text">class</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#name"><span class="toc-number">6.3.</span> <span class="toc-text">name</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scope"><span class="toc-number">6.4.</span> <span class="toc-text">scope</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性的注入"><span class="toc-number">7.</span> <span class="toc-text">属性的注入</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建对象的时候，也要向类里面的属性里面设置值"><span class="toc-number">7.1.</span> <span class="toc-text">创建对象的时候，也要向类里面的属性里面设置值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性注入的方式"><span class="toc-number">7.2.</span> <span class="toc-text">属性注入的方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用有参数的构造注入"><span class="toc-number">7.3.</span> <span class="toc-text">使用有参数的构造注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用set方式的注入"><span class="toc-number">7.4.</span> <span class="toc-text">使用set方式的注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注入对象类型的属性"><span class="toc-number">7.5.</span> <span class="toc-text">注入对象类型的属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#名称空间的注入"><span class="toc-number">7.6.</span> <span class="toc-text">名称空间的注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注入复杂的数据"><span class="toc-number">7.7.</span> <span class="toc-text">注入复杂的数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数组-数据有多少个就加多少个value"><span class="toc-number">7.7.1.</span> <span class="toc-text">数组:数据有多少个就加多少个value</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#list集合"><span class="toc-number">7.7.2.</span> <span class="toc-text">list集合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#map集合"><span class="toc-number">7.7.3.</span> <span class="toc-text">map集合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#property类型"><span class="toc-number">7.7.4.</span> <span class="toc-text">property类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IOC与DI区别"><span class="toc-number">7.8.</span> <span class="toc-text">IOC与DI区别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#二者关系"><span class="toc-number">7.8.1.</span> <span class="toc-text">二者关系</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring整合web项目"><span class="toc-number">7.9.</span> <span class="toc-text">Spring整合web项目</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#把加载配置文件和创建对象过程，在服务器启动时候完成"><span class="toc-number">7.9.1.</span> <span class="toc-text">把加载配置文件和创建对象过程，在服务器启动时候完成</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#实现原理"><span class="toc-number">7.9.1.1.</span> <span class="toc-text">实现原理</span></a></li></ol></li></ol></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -460,13 +592,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2017/07/11/汇编基础3/" title="上一篇: 8086指令系统和寻址方式">
+            <a  href="/2017/10/18/Spring2/" title="上一篇: Spring2">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2017/07/07/基础知识/" title="下一篇: 基础知识">
+            <a  href="/2017/10/11/诗3/" title="下一篇: 诗3">
                 <i class="fa fa-angle-right"></i>
             </a>
         

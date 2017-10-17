@@ -4,19 +4,22 @@
   <meta charset="utf-8">
   <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
   
-   
-    <meta name="keywords" content="再别康桥" />
   
   
   
-  <title>Tag: 再别康桥 | Liang`s Blog</title>
+  <title>Spring3 | Liang`s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Liang`s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/再别康桥/index.html">
+  <meta name="description" content="Spring的jdbcTemplate操作,使用在dao层的技术Spring是一站式框架Spring对不同的持久化层都有封装JDBC:使用jdbcTemplate进行封装 需要注册mysql驱动DriverManagerDataSource dataSource = new DriverManagerDataSource(); dataSource.setDriverClassName(&amp;quot">
+<meta name="keywords" content="Spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring3">
+<meta property="og:url" content="http://yoursite.com/2017/10/18/Spring3/index.html">
 <meta property="og:site_name" content="Liang`s Blog">
+<meta property="og:description" content="Spring的jdbcTemplate操作,使用在dao层的技术Spring是一站式框架Spring对不同的持久化层都有封装JDBC:使用jdbcTemplate进行封装 需要注册mysql驱动DriverManagerDataSource dataSource = new DriverManagerDataSource(); dataSource.setDriverClassName(&amp;quot">
+<meta property="og:updated_time" content="2017-10-17T16:17:51.919Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Liang`s Blog">
+<meta name="twitter:title" content="Spring3">
+<meta name="twitter:description" content="Spring的jdbcTemplate操作,使用在dao层的技术Spring是一站式框架Spring对不同的持久化层都有封装JDBC:使用jdbcTemplate进行封装 需要注册mysql驱动DriverManagerDataSource dataSource = new DriverManagerDataSource(); dataSource.setDriverClassName(&amp;quot">
   
     <link rel="alternative" href="/atom.xml" title="Liang`s Blog" type="application/atom+xml">
   
@@ -41,9 +44,9 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: false,
+          isPost: true,
           isArchive: false,
-          isTag: true,
+          isTag: false,
           isCategory: false,
           open_in_new: false
       }
@@ -267,56 +270,233 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-Spring3" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a  href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a  href="/2017/10/11/诗3/" class="archive-article-date">
-      <time datetime="2017-10-11T01:15:50.000Z" itemprop="datePublished">10-11</time>
+    <div class="article-meta">
+      <a  href="/2017/10/18/Spring3/" class="article-date">
+      <time datetime="2017-10-17T16:17:08.000Z" itemprop="datePublished">2017-10-18</time>
 </a>
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a  class="archive-article-title" href="/2017/10/11/诗3/">诗3</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Spring3
     </h1>
   
 
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 
-          
+        
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/再别康桥/">再别康桥</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="Spring的jdbcTemplate操作-使用在dao层的技术"><a href="#Spring的jdbcTemplate操作-使用在dao层的技术" class="headerlink" title="Spring的jdbcTemplate操作,使用在dao层的技术"></a>Spring的jdbcTemplate操作,使用在dao层的技术</h2><h4 id="Spring是一站式框架"><a href="#Spring是一站式框架" class="headerlink" title="Spring是一站式框架"></a>Spring是一站式框架</h4><h4 id="Spring对不同的持久化层都有封装"><a href="#Spring对不同的持久化层都有封装" class="headerlink" title="Spring对不同的持久化层都有封装"></a>Spring对不同的持久化层都有封装</h4><h4 id="JDBC-使用jdbcTemplate进行封装"><a href="#JDBC-使用jdbcTemplate进行封装" class="headerlink" title="JDBC:使用jdbcTemplate进行封装"></a>JDBC:使用jdbcTemplate进行封装</h4><ul>
+<li>需要注册mysql驱动<pre><code>DriverManagerDataSource dataSource = new DriverManagerDataSource();
+dataSource.setDriverClassName(&quot;com.mysql.jdbc.Driver&quot;);
+dataSource.setUrl(&quot;jdbc:mysql://127.0.0.1:3306/micro&quot;);
+dataSource.setUsername(&quot;root&quot;);
+dataSource.setPassword(&quot;root123&quot;);
+</code></pre></li>
+<li>创建模板信息<pre><code>JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+</code></pre></li>
+<li>实际操作数据</li>
+</ul>
+<ol>
+<li>增加:使用uodate(增加sql语句,增加数据的参数的具体值)</li>
+<li>修改:使用update(修改sql语句,修改数据的参数的具体值)</li>
+<li>删除:使用update(删除sql语句,删除数据的参数的具体值)</li>
+<li>查询:<blockquote>
+<ul>
+<li>查询返回一个值<pre><code>使用queryForObject(sql语句,返回类型)
+</code></pre></li>
+<li>查询返回一个对象<pre><code>需要实现RowMapper接口，复写mapRow(ResultSet resultSet, int i) throws SQLException方法
+操作与jdbc链接数据库操作相同，进行取值等操作
+</code></pre></li>
+<li>查询返回list集合<pre><code>使用query(sql语句,实现的RowMapper接口的，复写了mapRow(ResultSet resultSet, int i) throws SQLException方法的类
+操作与jdnc操作数据库形式相同
+</code></pre><h4 id="Hibernate-使用HibernateTemplate进行封装"><a href="#Hibernate-使用HibernateTemplate进行封装" class="headerlink" title="Hibernate:使用HibernateTemplate进行封装"></a>Hibernate:使用HibernateTemplate进行封装</h4><h4 id="Mybatis-使用SqlMapClientTemplate进行封装"><a href="#Mybatis-使用SqlMapClientTemplate进行封装" class="headerlink" title="Mybatis:使用SqlMapClientTemplate进行封装"></a>Mybatis:使用SqlMapClientTemplate进行封装</h4></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="Spring操作连接池-c3p0"><a href="#Spring操作连接池-c3p0" class="headerlink" title="Spring操作连接池:c3p0"></a>Spring操作连接池:c3p0</h3><ul>
+<li>使用代码操作连接池<pre><code>com.mchange.v2.c3p0.DriverManagerDataSource dataSource = new com.mchange.v2.c3p0.DriverManagerDataSource();
+dataSource.setDriverClass(&quot;com.mysql.jdbc.Driver&quot;);
+dataSource.setJdbcUrl(&quot;jdbc:mysql://127.0.0.1:3306/micro&quot;);
+dataSource.setPassword(&quot;root123&quot;);
+dataSource.setUser(&quot;root&quot;);
+</code></pre></li>
+<li>使用配置文件操作连接池：连接池的方法都是set方法，可以使用set方式注入，达到操作连接池的效果<h3 id="在DAO层使用模板"><a href="#在DAO层使用模板" class="headerlink" title="在DAO层使用模板"></a>在DAO层使用模板</h3></li>
+<li>在dao注入JdbcTemplate</li>
+<li>在jdbcTemplate中注入dataSource实现操作</li>
+</ul>
+
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/2017/10/18/Spring3/">Spring3</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 Petter 的个人博客">Petter</a></p>
+        <p><span>发布时间:</span>2017年10月18日 - 00时17分</p>
+        <p><span>最后更新:</span>2017年10月18日 - 00时17分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/10/18/Spring3/" title="Spring3">http://yoursite.com/2017/10/18/Spring3/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/10/18/Spring3/　　作者: Petter" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a  href="/2017/10/18/Spring2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring2</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring的jdbcTemplate操作-使用在dao层的技术"><span class="toc-number">1.</span> <span class="toc-text">Spring的jdbcTemplate操作,使用在dao层的技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Spring是一站式框架"><span class="toc-number">1.0.1.</span> <span class="toc-text">Spring是一站式框架</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Spring对不同的持久化层都有封装"><span class="toc-number">1.0.2.</span> <span class="toc-text">Spring对不同的持久化层都有封装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JDBC-使用jdbcTemplate进行封装"><span class="toc-number">1.0.3.</span> <span class="toc-text">JDBC:使用jdbcTemplate进行封装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hibernate-使用HibernateTemplate进行封装"><span class="toc-number">1.0.4.</span> <span class="toc-text">Hibernate:使用HibernateTemplate进行封装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Mybatis-使用SqlMapClientTemplate进行封装"><span class="toc-number">1.0.5.</span> <span class="toc-text">Mybatis:使用SqlMapClientTemplate进行封装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring操作连接池-c3p0"><span class="toc-number">1.1.</span> <span class="toc-text">Spring操作连接池:c3p0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在DAO层使用模板"><span class="toc-number">1.2.</span> <span class="toc-text">在DAO层使用模板</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
 
     
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: 'cyt1BkYgm',
+      conf: 'xxxxxxxxx'
+    });
+  </script>
+</section>
+    
 
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2017/10/18/Spring2/" title="下一篇: Spring2">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/10/18/Spring3/">Spring3</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/18/Spring2/">Spring2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/18/Spring1/">Spring1</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/11/诗3/">诗3</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/14/条件转移指令/">转移指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/13/8086的指令系统2/">8086的指令系统2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/12/8086的指令系统/">8086的指令系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/11/汇编基础3/">8086指令系统和寻址方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/08/基础知识3/">8086指令系统和寻址方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/07/基础知识/">基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/04/汇编基础2/">基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/02/基础必知/">进制转化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/02/编译环境/">汇编</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/02/汇编基础/">汇编基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/21/诗2/">诗</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/21/诗/">诗</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/09/hello-world/">Hello World</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
 
 </div>
       <footer id="footer">
@@ -427,17 +607,6 @@ MathJax.Hub.Queue(function() {
         };
     })
 </script>
-
-    <button class="hide-labels">TAG 开关</button>
-    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js">
-    </script>
-    <script>
-        $(document).ready(function() {
-            $("button").click(function() {
-                $(".article-info").toggle(200);
-            });
-        });
-    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
