@@ -270,107 +270,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-Spring3" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/10/18/Spring3/" class="article-date">
-      <time datetime="2017-10-17T16:17:08.000Z" itemprop="datePublished">2017-10-18</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/10/18/Spring3/">Spring3</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="Spring的jdbcTemplate操作-使用在dao层的技术"><a href="#Spring的jdbcTemplate操作-使用在dao层的技术" class="headerlink" title="Spring的jdbcTemplate操作,使用在dao层的技术"></a>Spring的jdbcTemplate操作,使用在dao层的技术</h2><h4 id="Spring是一站式框架"><a href="#Spring是一站式框架" class="headerlink" title="Spring是一站式框架"></a>Spring是一站式框架</h4><h4 id="Spring对不同的持久化层都有封装"><a href="#Spring对不同的持久化层都有封装" class="headerlink" title="Spring对不同的持久化层都有封装"></a>Spring对不同的持久化层都有封装</h4><h4 id="JDBC-使用jdbcTemplate进行封装"><a href="#JDBC-使用jdbcTemplate进行封装" class="headerlink" title="JDBC:使用jdbcTemplate进行封装"></a>JDBC:使用jdbcTemplate进行封装</h4><ul>
-<li>需要注册mysql驱动<pre><code>DriverManagerDataSource dataSource = new DriverManagerDataSource();
-dataSource.setDriverClassName(&quot;com.mysql.jdbc.Driver&quot;);
-dataSource.setUrl(&quot;jdbc:mysql://127.0.0.1:3306/micro&quot;);
-dataSource.setUsername(&quot;root&quot;);
-dataSource.setPassword(&quot;root123&quot;);
-</code></pre></li>
-<li>创建模板信息<pre><code>JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-</code></pre></li>
-<li>实际操作数据</li>
-</ul>
-<ol>
-<li>增加:使用uodate(增加sql语句,增加数据的参数的具体值)</li>
-<li>修改:使用update(修改sql语句,修改数据的参数的具体值)</li>
-<li>删除:使用update(删除sql语句,删除数据的参数的具体值)</li>
-<li>查询:<blockquote>
-<ul>
-<li>查询返回一个值<pre><code>使用queryForObject(sql语句,返回类型)
-</code></pre></li>
-<li>查询返回一个对象<pre><code>需要实现RowMapper接口，复写mapRow(ResultSet resultSet, int i) throws SQLException方法
-操作与jdbc链接数据库操作相同，进行取值等操作
-</code></pre></li>
-<li>查询返回list集合<pre><code>使用query(sql语句,实现的RowMapper接口的，复写了mapRow(ResultSet resultSet, int i) throws SQLException方法的类
-操作与jdnc操作数据库形式相同
-</code></pre><h4 id="Hibernate-使用HibernateTemplate进行封装"><a href="#Hibernate-使用HibernateTemplate进行封装" class="headerlink" title="Hibernate:使用HibernateTemplate进行封装"></a>Hibernate:使用HibernateTemplate进行封装</h4><h4 id="Mybatis-使用SqlMapClientTemplate进行封装"><a href="#Mybatis-使用SqlMapClientTemplate进行封装" class="headerlink" title="Mybatis:使用SqlMapClientTemplate进行封装"></a>Mybatis:使用SqlMapClientTemplate进行封装</h4></li>
-</ul>
-</blockquote>
-</li>
-</ol>
-<h3 id="Spring操作连接池-c3p0"><a href="#Spring操作连接池-c3p0" class="headerlink" title="Spring操作连接池:c3p0"></a>Spring操作连接池:c3p0</h3><ul>
-<li>使用代码操作连接池<pre><code>com.mchange.v2.c3p0.DriverManagerDataSource dataSource = new com.mchange.v2.c3p0.DriverManagerDataSource();
-dataSource.setDriverClass(&quot;com.mysql.jdbc.Driver&quot;);
-dataSource.setJdbcUrl(&quot;jdbc:mysql://127.0.0.1:3306/micro&quot;);
-dataSource.setPassword(&quot;root123&quot;);
-dataSource.setUser(&quot;root&quot;);
-</code></pre></li>
-<li>使用配置文件操作连接池：连接池的方法都是set方法，可以使用set方式注入，达到操作连接池的效果<h3 id="在DAO层使用模板"><a href="#在DAO层使用模板" class="headerlink" title="在DAO层使用模板"></a>在DAO层使用模板</h3></li>
-<li>在dao注入JdbcTemplate</li>
-<li>在jdbcTemplate中注入dataSource实现操作</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-Spring2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -966,6 +865,171 @@ dataSource.setUser(&quot;root&quot;);
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编/">汇编</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Spring3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/07/13/Spring3/" class="article-date">
+      <time datetime="2017-07-13T03:14:30.000Z" itemprop="datePublished">2017-07-13</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/07/13/Spring3/">Spring3</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="Spring的jdbcTemplate操作-使用在dao层的技术"><a href="#Spring的jdbcTemplate操作-使用在dao层的技术" class="headerlink" title="Spring的jdbcTemplate操作,使用在dao层的技术"></a>Spring的jdbcTemplate操作,使用在dao层的技术</h2><h4 id="Spring是一站式框架"><a href="#Spring是一站式框架" class="headerlink" title="Spring是一站式框架"></a>Spring是一站式框架</h4><h4 id="Spring对不同的持久化层都有封装"><a href="#Spring对不同的持久化层都有封装" class="headerlink" title="Spring对不同的持久化层都有封装"></a>Spring对不同的持久化层都有封装</h4><h4 id="JDBC-使用jdbcTemplate进行封装"><a href="#JDBC-使用jdbcTemplate进行封装" class="headerlink" title="JDBC:使用jdbcTemplate进行封装"></a>JDBC:使用jdbcTemplate进行封装</h4><ul>
+<li>需要注册mysql驱动<pre><code>DriverManagerDataSource dataSource = new DriverManagerDataSource();
+dataSource.setDriverClassName(&quot;com.mysql.jdbc.Driver&quot;);
+dataSource.setUrl(&quot;jdbc:mysql://127.0.0.1:3306/micro&quot;);
+dataSource.setUsername(&quot;root&quot;);
+dataSource.setPassword(&quot;root123&quot;);
+</code></pre></li>
+<li>创建模板信息<pre><code>JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+</code></pre></li>
+<li>实际操作数据</li>
+</ul>
+<ol>
+<li>增加:使用uodate(增加sql语句,增加数据的参数的具体值)</li>
+<li>修改:使用update(修改sql语句,修改数据的参数的具体值)</li>
+<li>删除:使用update(删除sql语句,删除数据的参数的具体值)</li>
+<li>查询:<blockquote>
+<ul>
+<li>查询返回一个值<pre><code>使用queryForObject(sql语句,返回类型)
+</code></pre></li>
+<li>查询返回一个对象<pre><code>需要实现RowMapper接口，复写mapRow(ResultSet resultSet, int i) throws SQLException方法
+操作与jdbc链接数据库操作相同，进行取值等操作
+</code></pre></li>
+<li>查询返回list集合<pre><code>使用query(sql语句,实现的RowMapper接口的，复写了mapRow(ResultSet resultSet, int i) throws SQLException方法的类
+操作与jdnc操作数据库形式相同
+</code></pre><h4 id="Hibernate-使用HibernateTemplate进行封装"><a href="#Hibernate-使用HibernateTemplate进行封装" class="headerlink" title="Hibernate:使用HibernateTemplate进行封装"></a>Hibernate:使用HibernateTemplate进行封装</h4><h4 id="Mybatis-使用SqlMapClientTemplate进行封装"><a href="#Mybatis-使用SqlMapClientTemplate进行封装" class="headerlink" title="Mybatis:使用SqlMapClientTemplate进行封装"></a>Mybatis:使用SqlMapClientTemplate进行封装</h4></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="Spring操作连接池-c3p0"><a href="#Spring操作连接池-c3p0" class="headerlink" title="Spring操作连接池:c3p0"></a>Spring操作连接池:c3p0</h3><ul>
+<li>使用代码操作连接池<pre><code>com.mchange.v2.c3p0.DriverManagerDataSource dataSource = new com.mchange.v2.c3p0.DriverManagerDataSource();
+dataSource.setDriverClass(&quot;com.mysql.jdbc.Driver&quot;);
+dataSource.setJdbcUrl(&quot;jdbc:mysql://127.0.0.1:3306/micro&quot;);
+dataSource.setPassword(&quot;root123&quot;);
+dataSource.setUser(&quot;root&quot;);
+</code></pre></li>
+<li>使用配置文件操作连接池：连接池的方法都是set方法，可以使用set方式注入，达到操作连接池的效果<h3 id="在DAO层使用模板"><a href="#在DAO层使用模板" class="headerlink" title="在DAO层使用模板"></a>在DAO层使用模板</h3></li>
+<li>在dao注入JdbcTemplate</li>
+<li><p>在jdbcTemplate中注入dataSource实现操作</p>
+<pre><code>&lt;!--配置连接池--&gt;
+&lt;bean id=&quot;dataSource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;&gt;
+    &lt;property name=&quot;driverClass&quot; value=&quot;com.mysql.jdbc.Driver&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:mysql://127.0.0.1:3306/micro&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;user&quot; value=&quot;root&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;password&quot; value=&quot;root123&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;bean id=&quot;userService&quot; class=&quot;cn.pjl.c3p0.UserService&quot;&gt;
+    &lt;property name=&quot;userDao&quot; ref=&quot;userDao&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;bean id=&quot;userDao&quot; class=&quot;cn.pjl.c3p0.UserDao&quot;&gt;
+    &lt;property name=&quot;jdbcTemplate&quot; ref=&quot;jdbcTemplate&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;bean class=&quot;org.springframework.jdbc.core.JdbcTemplate&quot; id=&quot;jdbcTemplate&quot;&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+</code></pre></li>
+</ul>
+<h3 id="Spring事物"><a href="#Spring事物" class="headerlink" title="Spring事物"></a>Spring事物</h3><h4 id="什么是事物-对sql操作最基本的单元，是一组操作，有一个失败都失败"><a href="#什么是事物-对sql操作最基本的单元，是一组操作，有一个失败都失败" class="headerlink" title="什么是事物:对sql操作最基本的单元，是一组操作，有一个失败都失败"></a>什么是事物:对sql操作最基本的单元，是一组操作，有一个失败都失败</h4><h4 id="事物的特效"><a href="#事物的特效" class="headerlink" title="事物的特效"></a>事物的特效</h4><h4 id="不考虑隔离性会产生的问题"><a href="#不考虑隔离性会产生的问题" class="headerlink" title="不考虑隔离性会产生的问题"></a>不考虑隔离性会产生的问题</h4><h4 id="设置隔离级别可以解决"><a href="#设置隔离级别可以解决" class="headerlink" title="设置隔离级别可以解决"></a>设置隔离级别可以解决</h4><h3 id="Spring事务管理以及API"><a href="#Spring事务管理以及API" class="headerlink" title="Spring事务管理以及API"></a>Spring事务管理以及API</h3><h4 id="Spring事务管理的两种方式"><a href="#Spring事务管理的两种方式" class="headerlink" title="Spring事务管理的两种方式"></a>Spring事务管理的两种方式</h4><ul>
+<li>编程式</li>
+<li>声明式</li>
+</ul>
+<ol>
+<li>基于配置文件</li>
+<li>基于注解实现<h4 id="Spring进行事物管理的API"><a href="#Spring进行事物管理的API" class="headerlink" title="Spring进行事物管理的API"></a>Spring进行事物管理的API</h4><h4 id="PlatformTransactionManager-事务管理器"><a href="#PlatformTransactionManager-事务管理器" class="headerlink" title="PlatformTransactionManager:事务管理器"></a>PlatformTransactionManager:事务管理器</h4></li>
+</ol>
+<ul>
+<li>Spring针对不同dao层的框架，都有不同的实现类</li>
+</ul>
+<ol>
+<li>DataSourceTranscationManager:针对JDBC或Mybatis</li>
+<li>HibernateTransactionManager:针对Hibernate<h4 id="TransactionDefinition-事务定义器"><a href="#TransactionDefinition-事务定义器" class="headerlink" title="TransactionDefinition:事务定义器"></a>TransactionDefinition:事务定义器</h4><h4 id="TransactionStatus-事务具体运行状态"><a href="#TransactionStatus-事务具体运行状态" class="headerlink" title="TransactionStatus:事务具体运行状态"></a>TransactionStatus:事务具体运行状态</h4></li>
+</ol>
+<ul>
+<li>如果没有添加事务，在出现异常时，会产生错误<h3 id="事务管理配置文件方式实现步骤"><a href="#事务管理配置文件方式实现步骤" class="headerlink" title="事务管理配置文件方式实现步骤"></a>事务管理配置文件方式实现步骤</h3></li>
+<li>首先引入约束(aop和tx)</li>
+<li>配置事物管理器<pre><code>&lt;bean id=&quot;tractionManager&quot; class=&quot;DataSourceTranscationManager的全路径&quot;&gt;
+  &lt;property name=&quot;dataSource&quot; ref=&quot;连接池的数据源&quot;&gt;
+&lt;/bean&gt;
+</code></pre></li>
+<li>配置事务增强<pre><code>&lt;tx:advice id=&quot;&quot; transaction-manager=&quot;事务管理器的id&quot;&gt;
+  &lt;!--做事务操作---&gt;
+  &lt;tx:attributes&gt;
+    &lt;!--设置进行事务操作的方法匹配--&gt;
+    &lt;tx:method name=&quot;方法名&quot;&gt;
+  &lt;/tx:attributes
+&lt;/tx:advice&gt;
+</code></pre></li>
+<li>配置切面<pre><code>&lt;aop:config&gt;
+  &lt;aop:pointcut express=&quot;execution=(* 类的路径.方法(..))&quot; id=&quot;切入点命名&quot;&gt;
+  &lt;aop:advisor advice-ref=&quot;事务增强的id&quot; point-ref=切入点的id&quot;&quot;&gt;
+&lt;/aop:config&gt;
+</code></pre><h3 id="事务管理的注解方式实现步骤"><a href="#事务管理的注解方式实现步骤" class="headerlink" title="事务管理的注解方式实现步骤"></a>事务管理的注解方式实现步骤</h3></li>
+<li>配置事务管理器<pre><code>&lt;bean id=&quot;tractionManager&quot; class=&quot;DataSourceTranscationManager的全路径&quot;&gt;
+  &lt;property name=&quot;dataSource&quot; ref=&quot;连接池的数据源&quot;&gt;
+&lt;/bean&gt;
+</code></pre></li>
+<li>配置事务注解扫描<pre><code>&lt;tx:annotation-driven transaction-manager=&quot;事务管理器的id值&quot;&gt;&lt;/tx:annotation-driven&gt;
+</code></pre></li>
+<li>在要使用事务方法所在类的上面添加注解<pre><code>@Transactional;在需要使用的方法的类上面添加注解
+</code></pre></li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
     </div>
 
       
