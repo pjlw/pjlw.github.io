@@ -191,7 +191,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Mybatis/" style="font-size: 10px;">Mybatis</a> <a href="/tags/Spring/" style="font-size: 16.67px;">Spring</a> <a href="/tags/再别康桥/" style="font-size: 10px;">再别康桥</a> <a href="/tags/汇编/" style="font-size: 20px;">汇编</a> <a href="/tags/诗句/" style="font-size: 13.33px;">诗句</a>
+                        <a href="/tags/Mybatis/" style="font-size: 13.33px;">Mybatis</a> <a href="/tags/Spring/" style="font-size: 16.67px;">Spring</a> <a href="/tags/再别康桥/" style="font-size: 10px;">再别康桥</a> <a href="/tags/汇编/" style="font-size: 20px;">汇编</a> <a href="/tags/诗句/" style="font-size: 13.33px;">诗句</a>
                     </div>
                 </section>
                 
@@ -269,6 +269,99 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-基础知识3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/07/08/基础知识3/" class="article-date">
+      <time datetime="2017-07-08T06:23:22.000Z" itemprop="datePublished">2017-07-08</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/07/08/基础知识3/">8086指令系统和寻址方式</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h2><ol>
+<li>立即数寻址: MOV AX,34H;不能给段寄存器和标志寄存器赋立即数(MOV DS,1250是错误的)</li>
+<li>寄存器寻址: 可以是AX,BX,CX,DX,SI,DI,SP,BP;寄存器的位数必须一致(MOV CL,BX是错误的)</li>
+<li>内存储器寻址: 取得操作的偏移地址也称为有效地址EA<ol>
+<li>基本知识<ol>
+<li>有效地址的组成:位移量+基地址+变址<br>　　　2. 不允许使用跨越前缀的情况:串处理的目的串必须用ES段;PUSH指令的目的和POP指令的源必须使用SS段;指令必须放在CS段</li>
+</ol>
+</li>
+<li>直接寻址方式:<ol>
+<li>MOV AX,[2000H]修改AX地址;</li>
+<li>如果在附加段中，应指定段前缀:MOV AX,ES:[values]</li>
+</ol>
+</li>
+<li>寄存器间接寻址:<ol>
+<li>MOV AL,[BX];</li>
+<li>操作数只包含BX/BP,SI/DI使用BP省略段SS,其它则省略DS段；</li>
+<li>跨段使用:MOV AX,ES:[BX]</li>
+</ol>
+</li>
+<li>寄存器相对寻址:<ol>
+<li>MOV AX,COUNT[BX];若(DS)=3000H,(BX)=1000H,CONUT=1000H,物理地址是:32000H</li>
+<li>操作数仅有基址/变址指定位移之和<br>　　　3. 使用段跨越:MOV AX,ES:COUNT[BX]</li>
+</ol>
+</li>
+<li>基址变址寻址:<ol>
+<li>操作数的有效地址是基址和变址的内容之和<br>　　　2. MOV AX,[BX][DI]</li>
+<li>使用段跨越:MOV AX,ES:]BX][DI]</li>
+</ol>
+</li>
+<li>相对基址变址寻址:<ol>
+<li>操作数的有效地址是基址变址和指定的位移量之和<br>　　　2. MOV AX,MASK[BX][DI]</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-基础知识" class="article article-type-post" itemscope itemprop="blogPost">
   
